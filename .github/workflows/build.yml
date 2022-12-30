@@ -13,7 +13,7 @@ on:
     types: [completed]
 
 env:
-  default-php-version: '8.0'
+  default-php-version: '8.1' # Upgraded from 8.0
   coverage-with: 'sqlite'
 
 
@@ -27,7 +27,7 @@ jobs:
 
     services:
       pgsql:
-        image: postgres:13.0
+        image: postgres:14.6 # Upgraded from 13.0
         env:
           POSTGRES_DB: officelife
           POSTGRES_USER: officelife
@@ -39,19 +39,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['8.0']
+        php-version: ['8.1'] # Upgraded from 8.0
         connection: [sqlite, mysql, pgsql]
         testsuite: [Unit]
         coverage: [true] # run test with coverage, if 'coverage-with' match with the connection
         include:
           - connection: sqlite
             testsuite: Integration
-            php-version: '8.0'
+            php-version: '8.1' # Upgraded from 8.0
             coverage: false
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3 # Upgraded from v2
 
       - name: Setup PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
@@ -74,7 +74,7 @@ jobs:
         id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
       - name: Cache composer files
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3 # Upgraded from v2.1.6
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
@@ -137,7 +137,7 @@ jobs:
 
       - name: Store results
         if: matrix.php-version == env.default-php-version
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3 # Upgraded from v2
         with:
           name: results
           path: results
@@ -150,7 +150,8 @@ jobs:
     needs: tests
     runs-on: ubuntu-latest
     name: Sonarcloud
-    if: ${{ ! startsWith(github.ref, 'dependabot/') }}
+    # if: ${{ ! startsWith(github.ref, 'dependabot/') }}
+    if: ${{ false }}  # Disable it for now.
 
     steps:
       - name: Checkout repository
