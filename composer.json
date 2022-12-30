@@ -48,7 +48,7 @@
     "fakerphp/faker": "^1.10",
     "friendsofphp/php-cs-fixer": "^3.0",
     "graham-campbell/testbench-core": "^3.1",
-    "johnkary/phpunit-speedtrap": "^3.1",
+    "johnkary/phpunit-speedtrap": "^4.0",
     "laravel/dusk": "^6.6",
     "laravel/legacy-factories": "^1.0",
     "laravel/sail": "^1.12",
