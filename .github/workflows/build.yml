@@ -13,7 +13,7 @@ on:
     types: [completed]
 
 env:
-  default-php-version: '8.1' # Upgraded from 8.0
+  default-php-version: '8.1' # Upgraded from v8.0
   coverage-with: 'sqlite'
 
 
@@ -27,7 +27,7 @@ jobs:
 
     services:
       pgsql:
-        image: postgres:14.6 # Upgraded from 13.0
+        image: postgres:14.6 # Upgraded from v13.0
         env:
           POSTGRES_DB: officelife
           POSTGRES_USER: officelife
@@ -39,14 +39,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['8.1'] # Upgraded from 8.0
+        php-version: ['8.1'] # Upgraded from v8.0
         connection: [sqlite, mysql, pgsql]
         testsuite: [Unit]
         coverage: [true] # run test with coverage, if 'coverage-with' match with the connection
         include:
           - connection: sqlite
             testsuite: Integration
-            php-version: '8.1' # Upgraded from 8.0
+            php-version: '8.1' # Upgraded from v8.0
             coverage: false
 
     steps:
