@@ -18,11 +18,11 @@ on:
 env:
   php-version: '8.1' # Upgraded from v8.0
   node-version: 18
-  PROJECT_ID: ecosense-bangkit # TODO: update Google Cloud project id
-  SERVICE: officelife # TODO: update Cloud Run service name
-  REGION: asia-southeast1 # TODO: update Cloud Run service region
-  GAR_LOCATION: asia-southeast1 # TODO: update Artifact Registry location
-  REPOSITORY: officelife # TODO: update Artifact Registry repository name
+  PROJECT_ID: ${{ secrets.PROJECT_ID }} # TODO: update Google Cloud project id
+  SERVICE: ${{ secrets.SERVICE }} # TODO: update Cloud Run service name
+  REGION: ${{ secrets.REGION }} # TODO: update Cloud Run service region
+  GAR_LOCATION: ${{ secrets.REGION }} # TODO: update Artifact Registry location
+  REPOSITORY: ${{ secrets.GAR_REPOSITORY }} # TODO: update Artifact Registry repository name
 
 jobs:
   #############
@@ -81,14 +81,14 @@ jobs:
 
       # Yarn
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3 # Upgraded from v2
         with:
           node-version: ${{ env.node-version }}
       - name: Get yarn cache directory path
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - name: Cache yarn files
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3 # Upgraded from v2.1.6
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -100,7 +100,7 @@ jobs:
         run: scripts/package.sh 'main'
 
       - name: Store package
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3 # Upgraded from v2
         with:
           name: package
           path: ${{ steps.package.outputs.package }}
