@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41362b811385f6f122400be9609fdbcd",
+    "content-hash": "145dada066d156886408f2bc999dcf01",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -11510,16 +11510,16 @@
         },
         {
             "name": "laravel/legacy-factories",
-            "version": "v1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/legacy-factories.git",
-                "reference": "5edc7e7eb76e7b4b29221f32139bcbf806c8870f"
+                "reference": "51363af0881e24fd1c68860ecdbc0cab47350841"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/legacy-factories/zipball/5edc7e7eb76e7b4b29221f32139bcbf806c8870f",
-                "reference": "5edc7e7eb76e7b4b29221f32139bcbf806c8870f",
+                "url": "https://api.github.com/repos/laravel/legacy-factories/zipball/51363af0881e24fd1c68860ecdbc0cab47350841",
+                "reference": "51363af0881e24fd1c68860ecdbc0cab47350841",
                 "shasum": ""
             },
             "require": {
@@ -11562,7 +11562,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-01-13T08:45:08+00:00"
+            "time": "2022-12-27T16:42:06+00:00"
         },
         {
             "name": "laravel/sail",
@@ -16131,7 +16131,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0",
+        "php": "^8.1",
         "ext-intl": "*"
     },
     "platform-dev": [],
