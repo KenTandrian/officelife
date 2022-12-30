@@ -162,7 +162,7 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Download assets
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: assets
           path: public
@@ -223,7 +223,7 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Download assets
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: assets
           path: public
@@ -278,13 +278,13 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Download assets
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: assets
           path: public
 
       - name: Download source maps
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: sourcemaps
           path: public
