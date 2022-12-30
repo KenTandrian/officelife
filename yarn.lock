@@ -9000,10 +9000,10 @@ vue-eslint-parser@^7.10.0:
     lodash "^4.17.21"
     semver "^6.3.0"
 
-vue-final-modal@^3.4.3:
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/vue-final-modal/-/vue-final-modal-3.4.3.tgz#8fdf56da8a03cdf9e54bcaeb8293a93f88758915"
-  integrity sha512-sp6M09oXGcRM3d3Jr80UywWx4C9I18nH/549fgNrs8qbCcw+DJc8QSUFkJ91lqWndGQ1q5rYen4i4IIrpHPVYA==
+vue-final-modal@^3.4.11:
+  version "3.4.11"
+  resolved "https://registry.yarnpkg.com/vue-final-modal/-/vue-final-modal-3.4.11.tgz#5a7cb31fad5bff0f51e4db167ae9309f404f20a1"
+  integrity sha512-tKBM4hcUo16rUGa/UaYMlut11cRfxMZnahz9u+mAoSk8mQNdnm9FHzOeHIcUxNHvMC/YyVBlOHi+2GqOVO8zig==
 
 vue-i18n@^9.0.0:
   version "9.1.9"
