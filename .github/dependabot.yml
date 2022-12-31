@@ -10,6 +10,7 @@ updates:
     directory: "/"
     schedule:
       interval: weekly
+    open-pull-requests-limit: 20
     labels:
       - actions
       - dependencies
@@ -19,7 +20,7 @@ updates:
     directory: "/"
     schedule:
       interval: daily
-    open-pull-requests-limit: 50
+    open-pull-requests-limit: 20
     labels:
       - javascript
       - dependencies
@@ -29,7 +30,7 @@ updates:
     directory: "/"
     schedule:
       interval: daily
-    open-pull-requests-limit: 50
+    open-pull-requests-limit: 20
     labels:
       - php
       - dependencies
