@@ -3197,16 +3197,16 @@
         },
         {
             "name": "monicahq/laravel-cloudflare",
-            "version": "3.2.2",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/monicahq/laravel-cloudflare.git",
-                "reference": "bc8881e04223bdd1c564fdfcdc09f11c443e917d"
+                "reference": "99c1bad81341628ca650ebb88e34104b1c117f90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/monicahq/laravel-cloudflare/zipball/bc8881e04223bdd1c564fdfcdc09f11c443e917d",
-                "reference": "bc8881e04223bdd1c564fdfcdc09f11c443e917d",
+                "url": "https://api.github.com/repos/monicahq/laravel-cloudflare/zipball/99c1bad81341628ca650ebb88e34104b1c117f90",
+                "reference": "99c1bad81341628ca650ebb88e34104b1c117f90",
                 "shasum": ""
             },
             "require": {
@@ -3269,7 +3269,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-30T15:22:48+00:00"
+            "time": "2022-08-13T21:50:05+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -6134,16 +6134,16 @@
         },
         {
             "name": "spatie/laravel-ignition",
-            "version": "1.2.2",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-ignition.git",
-                "reference": "924d1ae878874ad0bb49f63b69a9af759a34ee78"
+                "reference": "29deea5d9cf921590184be6956e657c4f4566440"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/924d1ae878874ad0bb49f63b69a9af759a34ee78",
-                "reference": "924d1ae878874ad0bb49f63b69a9af759a34ee78",
+                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/29deea5d9cf921590184be6956e657c4f4566440",
+                "reference": "29deea5d9cf921590184be6956e657c4f4566440",
                 "shasum": ""
             },
             "require": {
@@ -6220,7 +6220,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-04-14T18:04:51+00:00"
+            "time": "2022-09-01T11:31:14+00:00"
         },
         {
             "name": "spatie/simple-excel",
