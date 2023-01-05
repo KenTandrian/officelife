@@ -22,7 +22,7 @@
     "laravel/sanctum": "^2.9",
     "laravel/socialite": "^5.2",
     "laravel/tinker": "^2.0",
-    "laravel/ui": "^3.0",
+    "laravel/ui": "^4.1",
     "mariuzzo/laravel-js-localization": "^1.7",
     "moneyphp/money": "^4.1",
     "monicahq/laravel-cloudflare": "^3.2",
