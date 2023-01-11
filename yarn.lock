@@ -1122,15 +1122,15 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
   integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
 
-"@sentry/browser@^7.29.0":
-  version "7.29.0"
-  resolved "https://registry.yarnpkg.com/@sentry/browser/-/browser-7.29.0.tgz#eb162b50adec33ac49ecd3dc930bdffbfda8098e"
-  integrity sha512-Af+dIcntaw405Wt7myDOMGDxiszfy4aBdshrEKYbGgcfHjgXBIdF3iKlNatvl6nrOm+IOVuKgSpCLOr2hiCwzw==
+"@sentry/browser@^7.30.0":
+  version "7.30.0"
+  resolved "https://registry.yarnpkg.com/@sentry/browser/-/browser-7.30.0.tgz#9b4387da933290546b7a4ef521713c38723a0213"
+  integrity sha512-9hpaNAqIBDLdnrZ51iWkqenRotqqweE1f2AlHO56nyT/UE+u+GdmAiBrgRNqdFQQM13JtTG/gu4HGOyLWb9HEA==
   dependencies:
-    "@sentry/core" "7.29.0"
-    "@sentry/replay" "7.29.0"
-    "@sentry/types" "7.29.0"
-    "@sentry/utils" "7.29.0"
+    "@sentry/core" "7.30.0"
+    "@sentry/replay" "7.30.0"
+    "@sentry/types" "7.30.0"
+    "@sentry/utils" "7.30.0"
     tslib "^1.9.3"
 
 "@sentry/core@7.29.0":
@@ -1161,14 +1161,14 @@
     localforage "^1.8.1"
     tslib "^1.9.3"
 
-"@sentry/replay@7.29.0":
-  version "7.29.0"
-  resolved "https://registry.yarnpkg.com/@sentry/replay/-/replay-7.29.0.tgz#75d5bb9df39e0a31994be245032c9998af62a304"
-  integrity sha512-Gw7HgviJQu6pX5RFQGVY38Av4qFn9otrZdwSSl/QK5hIyg6yhlh5h7U0ydZkrYYGiW6Z6SYYRpEWCJc/Wbh+ZQ==
+"@sentry/replay@7.30.0":
+  version "7.30.0"
+  resolved "https://registry.yarnpkg.com/@sentry/replay/-/replay-7.30.0.tgz#44db86956166fc8909459eef8ce94f750c072519"
+  integrity sha512-qJgz1tG0uStqMF5V7gN7KqxZuZY0MMQQY7siwPcSQVYj7X3AQswHjmvD4npEKbIa+jP6aQ6fFjoBjl3c0t3Mmg==
   dependencies:
-    "@sentry/core" "7.29.0"
-    "@sentry/types" "7.29.0"
-    "@sentry/utils" "7.29.0"
+    "@sentry/core" "7.30.0"
+    "@sentry/types" "7.30.0"
+    "@sentry/utils" "7.30.0"
 
 "@sentry/tracing@^7.30.0":
   version "7.30.0"
