@@ -1161,15 +1161,6 @@
     "@sentry/utils" "7.30.0"
     tslib "^1.9.3"
 
-"@sentry/hub@6.19.6":
-  version "6.19.6"
-  resolved "https://registry.yarnpkg.com/@sentry/hub/-/hub-6.19.6.tgz#ada83ceca0827c49534edfaba018221bc1eb75e1"
-  integrity sha512-PuEOBZxvx3bjxcXmWWZfWXG+orojQiWzv9LQXjIgroVMKM/GG4QtZbnWl1hOckUj7WtKNl4hEGO2g/6PyCV/vA==
-  dependencies:
-    "@sentry/types" "6.19.6"
-    "@sentry/utils" "6.19.6"
-    tslib "^1.9.3"
-
 "@sentry/integrations@^6.2.5":
   version "6.19.6"
   resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-6.19.6.tgz#157152f16a8ad8df8a97d08bfe740909446b075a"
@@ -1178,15 +1169,6 @@
     "@sentry/types" "6.19.6"
     "@sentry/utils" "6.19.6"
     localforage "^1.8.1"
-    tslib "^1.9.3"
-
-"@sentry/minimal@6.19.6":
-  version "6.19.6"
-  resolved "https://registry.yarnpkg.com/@sentry/minimal/-/minimal-6.19.6.tgz#b6cced3708e25d322039e68ebdf8fadfa445bf7d"
-  integrity sha512-T1NKcv+HTlmd8EbzUgnGPl4ySQGHWMCyZ8a8kXVMZOPDzphN3fVIzkYzWmSftCWp0rpabXPt9aRF2mfBKU+mAQ==
-  dependencies:
-    "@sentry/hub" "6.19.6"
-    "@sentry/types" "6.19.6"
     tslib "^1.9.3"
 
 "@sentry/replay@7.30.0":
@@ -1198,15 +1180,14 @@
     "@sentry/types" "7.30.0"
     "@sentry/utils" "7.30.0"
 
-"@sentry/tracing@^6.2.5":
-  version "6.19.6"
-  resolved "https://registry.yarnpkg.com/@sentry/tracing/-/tracing-6.19.6.tgz#faa156886afe441730f03cf9ac9c4982044b7135"
-  integrity sha512-STZdlEtTBqRmPw6Vjkzi/1kGkGPgiX0zdHaSOhSeA2HXHwx7Wnfu7veMKxtKWdO+0yW9QZGYOYqp0GVf4Swujg==
+"@sentry/tracing@^7.30.0":
+  version "7.30.0"
+  resolved "https://registry.yarnpkg.com/@sentry/tracing/-/tracing-7.30.0.tgz#b4576fbaf81ce418f1b7c37e7e5f4f6cf19a3c3b"
+  integrity sha512-bjGeDeKhpGAmLcWcrXFT/xOfHVwp/j0L1aRHzYHnqgTjVzD0NXcooPu/Nz8vF0paxz+hPD5bJwb8kz/ggJzGWQ==
   dependencies:
-    "@sentry/hub" "6.19.6"
-    "@sentry/minimal" "6.19.6"
-    "@sentry/types" "6.19.6"
-    "@sentry/utils" "6.19.6"
+    "@sentry/core" "7.30.0"
+    "@sentry/types" "7.30.0"
+    "@sentry/utils" "7.30.0"
     tslib "^1.9.3"
 
 "@sentry/types@6.19.6":
