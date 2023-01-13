@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3ff693a1e9e2c4311a887c85b1b44561",
+    "content-hash": "e0374ca57a57dcd3969f4380bb80785a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5716,16 +5716,16 @@
         },
         {
             "name": "socialiteproviders/microsoft-azure",
-            "version": "4.2.1",
+            "version": "5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SocialiteProviders/Microsoft-Azure.git",
-                "reference": "64779ec21db0bee3111039a67c0fa0ab550a3462"
+                "reference": "7522b27cd8518706b50e03b40a396fb0a6891feb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/Microsoft-Azure/zipball/64779ec21db0bee3111039a67c0fa0ab550a3462",
-                "reference": "64779ec21db0bee3111039a67c0fa0ab550a3462",
+                "url": "https://api.github.com/repos/SocialiteProviders/Microsoft-Azure/zipball/7522b27cd8518706b50e03b40a396fb0a6891feb",
+                "reference": "7522b27cd8518706b50e03b40a396fb0a6891feb",
                 "shasum": ""
             },
             "require": {
@@ -5750,10 +5750,20 @@
                 }
             ],
             "description": "Microsoft Azure OAuth2 Provider for Laravel Socialite",
+            "keywords": [
+                "azure",
+                "laravel",
+                "microsoft",
+                "oauth",
+                "provider",
+                "socialite"
+            ],
             "support": {
-                "source": "https://github.com/SocialiteProviders/Microsoft-Azure/tree/4.2.1"
+                "docs": "https://socialiteproviders.com/microsoft-azure",
+                "issues": "https://github.com/socialiteproviders/providers/issues",
+                "source": "https://github.com/socialiteproviders/providers"
             },
-            "time": "2021-06-14T22:51:38+00:00"
+            "time": "2022-03-15T21:17:43+00:00"
         },
         {
             "name": "socialiteproviders/slack",
