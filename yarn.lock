@@ -3523,10 +3523,10 @@ domutils@^2.0.0, domutils@^2.8.0:
     domelementtype "^2.2.0"
     domhandler "^4.2.0"
 
-donutty@^2.3.0:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/donutty/-/donutty-2.3.1.tgz#85169649bfdd3029bfd46d3469b871e1d6d7fbcc"
-  integrity sha512-N4QcKsL6aiwq8MTG25+G9HNeHuFqs8VmrvFs1ownJ7ODRGUNc785XzCVJp8Bwrj0GODfSvMXAXWCgkLKcwTFaw==
+donutty@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/donutty/-/donutty-2.4.0.tgz#3363e87d1dccbe4c5b1f6417b0a7a3391e35cef9"
+  integrity sha512-9g/JmMxbPzLbU+NrZGv6erGc4+qUIJYeYANyx1soYfQll+Ew6xIK80FSLf5tc3FxPH5IX260leF78M8QuZleVw==
 
 dot-case@^3.0.4:
   version "3.0.4"

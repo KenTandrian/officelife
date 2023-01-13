@@ -67,7 +67,7 @@
         "ant-design-vue": "^3.1.1",
         "axios": "^0.21",
         "click-outside-vue3": "^4.0.1",
-        "donutty": "^2.3.0",
+        "donutty": "^2.4.0",
         "lodash": "^4.17.20",
         "sass": "^1.27.0",
         "tachyons": "^4.12.0",
