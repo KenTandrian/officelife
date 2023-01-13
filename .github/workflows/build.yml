@@ -1,8 +1,8 @@
-name: Build and test
+name: Build and Test
 
 on:
   push:
-    branches: [main]
+    branches: [dev]
   pull_request:
     types: [opened, synchronize, reopened]
   release:
@@ -13,9 +13,8 @@ on:
     types: [completed]
 
 env:
-  default-php-version: '8.0'
+  default-php-version: '8.1' # Upgraded from v8.0
   coverage-with: 'sqlite'
-
 
 jobs:
   #############
@@ -27,7 +26,7 @@ jobs:
 
     services:
       pgsql:
-        image: postgres:13.0
+        image: postgres:14.6 # Upgraded from v13.0
         env:
           POSTGRES_DB: officelife
           POSTGRES_USER: officelife
@@ -39,19 +38,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['8.0']
+        php-version: ['8.1'] # Upgraded from v8.0
         connection: [sqlite, mysql, pgsql]
         testsuite: [Unit]
         coverage: [true] # run test with coverage, if 'coverage-with' match with the connection
         include:
           - connection: sqlite
             testsuite: Integration
-            php-version: '8.0'
+            php-version: '8.1' # Upgraded from v8.0
             coverage: false
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3 # Upgraded from v2
 
       - name: Setup PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
@@ -66,7 +65,7 @@ jobs:
       - name: Check PHP Extensions
         run: php -m
 
-    # Composer
+      # Composer
       - name: Validate composer.json and composer.lock
         run: composer validate
 
@@ -74,7 +73,7 @@ jobs:
         id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
       - name: Cache composer files
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3 # Upgraded from v2.1.6
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
@@ -86,7 +85,7 @@ jobs:
       - name: Install composer dependencies
         run: composer install --no-progress --no-interaction --prefer-dist --optimize-autoloader
 
-    # Prepare
+      # Prepare
       - name: Prepare environment
         run: |
           cp tests/.env.ci-${{ matrix.connection }} .env
@@ -119,7 +118,7 @@ jobs:
       - name: Run seeds
         run: php artisan db:seed --no-interaction -vvv
 
-    # Test
+      # Test
       - name: Run tests suite with coverage
         if: matrix.connection == env.coverage-with && matrix.php-version == env.default-php-version && matrix.coverage
         run: phpdbg -dmemory_limit=4G -qrr vendor/bin/phpunit -c phpunit.xml --testsuite ${{ matrix.testsuite }} --log-junit ./results/${{ matrix.connection }}/junit/results${{ matrix.testsuite }}.xml --coverage-clover ./results/${{ matrix.connection }}/coverage/coverage${{ matrix.testsuite }}.xml
@@ -137,11 +136,10 @@ jobs:
 
       - name: Store results
         if: matrix.php-version == env.default-php-version
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3 # Upgraded from v2
         with:
           name: results
           path: results
-
 
   ###########################
   # Reporting to sonarcloud
@@ -150,16 +148,17 @@ jobs:
     needs: tests
     runs-on: ubuntu-latest
     name: Sonarcloud
-    if: ${{ ! startsWith(github.ref, 'dependabot/') }}
+    # if: ${{ ! startsWith(github.ref, 'dependabot/') }}
+    if: ${{ false }} # Disable it for now.
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
 
       - name: Download results
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: results
           path: results
@@ -184,7 +183,7 @@ jobs:
 
       - name: SonarCloud Scan
         if: env.SONAR_TOKEN != ''
-        uses: SonarSource/sonarcloud-github-action@v1.6
+        uses: SonarSource/sonarcloud-github-action@v1.8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

@@ -11,9 +11,8 @@ on:
   workflow_dispatch:
 
 env:
-  php-version: '8.0'
-  node-version: 16
-
+  php-version: '8.1'
+  node-version: 18
 
 jobs:
   ####################
@@ -35,7 +34,7 @@ jobs:
           fetch-depth: 0 # Get all tags
 
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v2
+        uses: cycjimmy/semantic-release-action@v3
         id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -69,7 +68,7 @@ jobs:
         with:
           ref: v${{ needs.semantic.outputs.new_release_version }}
       - name: Download changelog file
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: changelog
 
@@ -80,7 +79,7 @@ jobs:
           extensions: mbstring, dom, fileinfo
           coverage: none
 
-    # Composer
+      # Composer
       - name: Get Composer Cache Directory
         id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
@@ -94,7 +93,7 @@ jobs:
             ${{ runner.os }}-composer-${{ env.php-version }}
             ${{ runner.os }}-composer-
 
-    # Yarn
+      # Yarn
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
