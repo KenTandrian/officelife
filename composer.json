@@ -36,7 +36,7 @@
     "socialiteproviders/slack": "^4.1",
     "socialiteproviders/twitter": "^4.1",
     "spatie/laravel-ignition": "^1.0",
-    "spatie/simple-excel": "^1.13",
+    "spatie/simple-excel": "^3.0",
     "tightenco/ziggy": "^1.0",
     "uploadcare/uploadcare-php": "^4.0",
     "vluzrmos/language-detector": "^2.3"
