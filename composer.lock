@@ -5670,26 +5670,22 @@
         },
         {
             "name": "socialiteproviders/laravelpassport",
-            "version": "4.1.0",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SocialiteProviders/Laravel-Passport.git",
-                "reference": "ffde71ec6c7a0f70caa3f85c880e7ef161ba3096"
+                "reference": "5ee785624a0fc5ee4b18922e1295a63729074285"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/Laravel-Passport/zipball/ffde71ec6c7a0f70caa3f85c880e7ef161ba3096",
-                "reference": "ffde71ec6c7a0f70caa3f85c880e7ef161ba3096",
+                "url": "https://api.github.com/repos/SocialiteProviders/Laravel-Passport/zipball/5ee785624a0fc5ee4b18922e1295a63729074285",
+                "reference": "5ee785624a0fc5ee4b18922e1295a63729074285",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": "^7.2 || ^8.0",
+                "php": "^7.4 || ^8.0",
                 "socialiteproviders/manager": "~4.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "~0.9.4",
-                "phpunit/phpunit": "~4.8|~5.4|~6.1"
             },
             "type": "library",
             "autoload": {
@@ -5708,28 +5704,37 @@
                 }
             ],
             "description": "LaravelPassport OAuth2 Provider for Laravel Socialite",
+            "keywords": [
+                "laravel",
+                "oauth",
+                "passport",
+                "provider",
+                "socialite"
+            ],
             "support": {
-                "source": "https://github.com/SocialiteProviders/Laravel-Passport/tree/4.1.0"
+                "docs": "https://socialiteproviders.com/laravelpassport",
+                "issues": "https://github.com/socialiteproviders/providers/issues",
+                "source": "https://github.com/socialiteproviders/providers"
             },
-            "time": "2020-12-01T23:10:59+00:00"
+            "time": "2022-08-10T23:31:11+00:00"
         },
         {
             "name": "socialiteproviders/linkedin",
-            "version": "4.1.0",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SocialiteProviders/LinkedIn.git",
-                "reference": "bcf8a732328e868261416a5f04135acb0b94bf9a"
+                "reference": "6ac2a07bc97453c8f5104b324b4d3e0efabeb088"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/LinkedIn/zipball/bcf8a732328e868261416a5f04135acb0b94bf9a",
-                "reference": "bcf8a732328e868261416a5f04135acb0b94bf9a",
+                "url": "https://api.github.com/repos/SocialiteProviders/LinkedIn/zipball/6ac2a07bc97453c8f5104b324b4d3e0efabeb088",
+                "reference": "6ac2a07bc97453c8f5104b324b4d3e0efabeb088",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": "^7.2 || ^8.0",
+                "php": "^7.4 || ^8.0",
                 "socialiteproviders/manager": "~4.0"
             },
             "type": "library",
@@ -5749,10 +5754,19 @@
                 }
             ],
             "description": "LinkedIn OAuth2 Provider for Laravel Socialite",
+            "keywords": [
+                "laravel",
+                "linkedin",
+                "oauth",
+                "provider",
+                "socialite"
+            ],
             "support": {
-                "source": "https://github.com/SocialiteProviders/LinkedIn/tree/4.1.0"
+                "docs": "https://socialiteproviders.com/linkedin",
+                "issues": "https://github.com/socialiteproviders/providers/issues",
+                "source": "https://github.com/socialiteproviders/providers"
             },
-            "time": "2020-12-01T23:10:59+00:00"
+            "time": "2022-09-02T10:07:27+00:00"
         },
         {
             "name": "socialiteproviders/manager",
