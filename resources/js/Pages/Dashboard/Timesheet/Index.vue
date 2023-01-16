@@ -143,7 +143,7 @@
             </div>
 
             <div v-else>
-              <label class="db">
+              <label class="db mb-2">
                 {{ $t('dashboard.timesheet_create_choose_project') }}
               </label>
               <a-select
@@ -159,7 +159,7 @@
 
               <div v-if="displayTasks">
                 <div class="flex">
-                  <label>
+                  <label class="mb-2">
                     {{ $t('dashboard.timesheet_create_choose_task') }}
                   </label>
                   <!-- display loading when tasks are being fetched -->
@@ -417,46 +417,45 @@ export default {
     },
 
     addBlankTimesheetRow() {
-      if (this.form.project && this.form.task)
-        this.timesheetRows.push({
-          project_id: this.newEntry.projectId,
-          project_name: this.newEntry.projectName,
-          project_code: this.newEntry.projectId,
-          task_id: this.newEntry.taskId,
-          task_title: this.newEntry.taskName,
-          total_this_week: 0,
-          days: [
-            {
-              day_of_week: 1,
-              total_of_minutes: 0,
-            },
-            {
-              day_of_week: 2,
-              total_of_minutes: 0,
-            },
-            {
-              day_of_week: 3,
-              total_of_minutes: 0,
-            },
-            {
-              day_of_week: 4,
-              total_of_minutes: 0,
-            },
-            {
-              day_of_week: 5,
-              total_of_minutes: 0,
-            },
-            {
-              day_of_week: 6,
-              total_of_minutes: 0,
-            },
-            {
-              day_of_week: 7,
-              total_of_minutes: 0,
-            },
-          ],
-        });
-
+      if (!this.form.project || !this.form.task) return;
+      this.timesheetRows.push({
+        project_id: this.newEntry.projectId,
+        project_name: this.newEntry.projectName,
+        project_code: this.newEntry.projectId,
+        task_id: this.newEntry.taskId,
+        task_title: this.newEntry.taskName,
+        total_this_week: 0,
+        days: [
+          {
+            day_of_week: 1,
+            total_of_minutes: 0,
+          },
+          {
+            day_of_week: 2,
+            total_of_minutes: 0,
+          },
+          {
+            day_of_week: 3,
+            total_of_minutes: 0,
+          },
+          {
+            day_of_week: 4,
+            total_of_minutes: 0,
+          },
+          {
+            day_of_week: 5,
+            total_of_minutes: 0,
+          },
+          {
+            day_of_week: 6,
+            total_of_minutes: 0,
+          },
+          {
+            day_of_week: 7,
+            total_of_minutes: 0,
+          },
+        ],
+      });
       this.displayNewEntry = false;
     },
 
