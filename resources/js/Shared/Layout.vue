@@ -206,7 +206,7 @@ nav {
         </div>
         <div class="absolute pa2 header-logo">
           <a href="">
-            <img loading="lazy" src="/img/logo.svg" width="30" height="27" alt="logo" />
+            <img loading="lazy" src="/img/logo.png" width="30" height="27" alt="logo" />
           </a>
         </div>
       </div>
