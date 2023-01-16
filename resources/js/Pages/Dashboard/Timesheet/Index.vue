@@ -131,7 +131,7 @@
 
           <!-- add a new row -->
           <form v-if="displayNewEntry" class="mb3 pa3 ba br2 bb-gray bg-gray" @submit.prevent="addBlankTimesheetRow()">
-            <!--  display loading if projects are being fetched -->
+            <!-- display loading when projects are being fetched -->
             <div v-if="projectsLoading" class="tc flex flex-column">
               <ball-pulse-loader color="#ccc" class="mb2"/>
               Loading projects...
@@ -143,7 +143,7 @@
             </div>
 
             <div v-else>
-              <label class="db mb-2">
+              <label class="db">
                 {{ $t('dashboard.timesheet_create_choose_project') }}
               </label>
               <a-select
@@ -158,11 +158,11 @@
               />
 
               <div v-if="displayTasks">
-                <div class="mb-2 flex">
+                <div class="flex">
                   <label>
                     {{ $t('dashboard.timesheet_create_choose_task') }}
                   </label>
-                  <!--  display loading if projects are being fetched -->
+                  <!-- display loading when tasks are being fetched -->
                   <div v-if="tasksLoading">
                     <ball-pulse-loader color="#ccc" class="ml2"/>
                   </div>

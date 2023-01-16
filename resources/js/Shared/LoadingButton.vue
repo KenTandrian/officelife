@@ -51,7 +51,7 @@ export default {
       default: '',
     },
     disabled: {
-      type: [Boolean],
+      type: Boolean,
       default: false,
     },
   },
