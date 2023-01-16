@@ -264,8 +264,8 @@ export default {
     },
 
     formatTime(timeInMinutes) {
-      var hours = Math.floor(timeInMinutes / 60);
-      var minutes = timeInMinutes % 60;
+      var hours = Math.floor(timeInMinutes / 60) || 0;
+      var minutes = timeInMinutes % 60 || 0;
 
       // this adds leading zero to minutes, if needed
       const zeroPad = (num, places) => String(num).padStart(places, '0');
