@@ -26,6 +26,12 @@
       border-color: #076ca9;
       color: #fff;
     }
+
+    &:disabled {
+      border: 1px solid #c8c8c8;
+      background-color: #dddddd;
+      color: #888888;
+    }
   }
 
   &.destroy {

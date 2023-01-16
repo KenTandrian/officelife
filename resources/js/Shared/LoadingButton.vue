@@ -4,7 +4,7 @@
 
 <template>
   <div class="di">
-    <button name="save" type="submit" :data-cy="cypressSelector" :disabled="loading"
+    <button name="save" type="submit" :data-cy="cypressSelector" :disabled="loading || disabled"
             v-bind="$attrs" :class="defaultClass"
             @click="$emit('click')"
     >
@@ -24,7 +24,6 @@
 import BallPulseLoader from 'vue-loaders/dist/loaders/ball-pulse';
 
 export default {
-
   components: {
     'ball-pulse-loader': BallPulseLoader.component,
   },
@@ -50,6 +49,10 @@ export default {
     cypressSelector: {
       type: String,
       default: '',
+    },
+    disabled: {
+      type: [Boolean],
+      default: false,
     },
   },
 

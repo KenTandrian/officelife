@@ -171,7 +171,9 @@
 
             <!-- Actions -->
             <div v-if="projects.length != 0">
-              <loading-button :class="'btn add w-auto-ns w-100 mb2 mr2 pv2 ph3'" :state="loadingState" :text="$t('app.add')" :cypress-selector="'submit-timesheet-new-row'" />
+              <loading-button :class="'btn add w-auto-ns w-100 mb2 mr2 pv2 ph3'" :state="loadingState" :text="$t('app.add')"
+                              :cypress-selector="'submit-timesheet-new-row'" :disabled="!form.project || !form.task"
+              />
               <a data-cy="cancel-button" class="btn dib tc w-auto-ns w-100 mb2 pv2 ph3" @click.prevent="displayNewEntry = false">
                 {{ $t('app.cancel') }}
               </a>
@@ -392,44 +394,45 @@ export default {
     },
 
     addBlankTimesheetRow() {
-      this.timesheetRows.push({
-        project_id: this.newEntry.projectId,
-        project_name: this.newEntry.projectName,
-        project_code: this.newEntry.projectId,
-        task_id: this.newEntry.taskId,
-        task_title: this.newEntry.taskName,
-        total_this_week: 0,
-        days: [
-          {
-            day_of_week: 1,
-            total_of_minutes: 0,
-          },
-          {
-            day_of_week: 2,
-            total_of_minutes: 0,
-          },
-          {
-            day_of_week: 3,
-            total_of_minutes: 0,
-          },
-          {
-            day_of_week: 4,
-            total_of_minutes: 0,
-          },
-          {
-            day_of_week: 5,
-            total_of_minutes: 0,
-          },
-          {
-            day_of_week: 6,
-            total_of_minutes: 0,
-          },
-          {
-            day_of_week: 7,
-            total_of_minutes: 0,
-          },
-        ],
-      });
+      if (this.form.project && this.form.task)
+        this.timesheetRows.push({
+          project_id: this.newEntry.projectId,
+          project_name: this.newEntry.projectName,
+          project_code: this.newEntry.projectId,
+          task_id: this.newEntry.taskId,
+          task_title: this.newEntry.taskName,
+          total_this_week: 0,
+          days: [
+            {
+              day_of_week: 1,
+              total_of_minutes: 0,
+            },
+            {
+              day_of_week: 2,
+              total_of_minutes: 0,
+            },
+            {
+              day_of_week: 3,
+              total_of_minutes: 0,
+            },
+            {
+              day_of_week: 4,
+              total_of_minutes: 0,
+            },
+            {
+              day_of_week: 5,
+              total_of_minutes: 0,
+            },
+            {
+              day_of_week: 6,
+              total_of_minutes: 0,
+            },
+            {
+              day_of_week: 7,
+              total_of_minutes: 0,
+            },
+          ],
+        });
 
       this.displayNewEntry = false;
     },
