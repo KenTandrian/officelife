@@ -84,6 +84,7 @@ class ValidateHttpsSignature
 
         $signature = hash_hmac('sha256', $original, call_user_func($this->keyResolver));
 
+        /* @psalm-suppress PossiblyInvalidCast */
         return hash_equals($signature, (string) $request->query('signature', ''));
     }
 
@@ -95,7 +96,8 @@ class ValidateHttpsSignature
      */
     public function signatureHasNotExpired(Request $request)
     {
-        $expires = $request->query('expires');
+        /** @psalm-suppress PossiblyInvalidCast */
+        $expires = (int) $request->query('expires');
 
         return ! ($expires && Carbon::now()->getTimestamp() > $expires);
     }
