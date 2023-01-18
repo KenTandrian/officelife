@@ -29,7 +29,7 @@ class ValidateHttpsSignature
     }
 
     /**
-     * based on vendor/laravel/framework/src/Illuminate/Routing/Middleware/ValidateSignature.php
+     * Based on vendor/laravel/framework/src/Illuminate/Routing/Middleware/ValidateSignature.php
      * but ensures that a url is always treated as https. This fixes the fact that
      * laravel running behind a rewrite proxy and getting urls as http.
      *
@@ -48,10 +48,10 @@ class ValidateHttpsSignature
     }
 
     /**
-     * Determine if the given request has a valid signature.
-     *
-     * copied and modified from
+     * Copied and modified from
      * vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php:363.
+     *
+     * Determine if the given request has a valid signature.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  bool  $absolute
