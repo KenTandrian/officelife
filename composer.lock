@@ -6117,20 +6117,20 @@
         },
         {
             "name": "spatie/simple-excel",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/simple-excel.git",
-                "reference": "f661a7a7c43713d452966e6e91f054e98e63366d"
+                "reference": "119e847cf76dec40b4e823916e14dc9f374f941a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/simple-excel/zipball/f661a7a7c43713d452966e6e91f054e98e63366d",
-                "reference": "f661a7a7c43713d452966e6e91f054e98e63366d",
+                "url": "https://api.github.com/repos/spatie/simple-excel/zipball/119e847cf76dec40b4e823916e14dc9f374f941a",
+                "reference": "119e847cf76dec40b4e823916e14dc9f374f941a",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "^8.71|^9.0",
+                "illuminate/support": "^8.71|^9.0|^10.0",
                 "openspout/openspout": "^4.8",
                 "php": "^8.0"
             },
@@ -6166,7 +6166,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/simple-excel/tree/3.0.0"
+                "source": "https://github.com/spatie/simple-excel/tree/3.0.1"
             },
             "funding": [
                 {
@@ -6174,7 +6174,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-09T09:47:22+00:00"
+            "time": "2023-01-17T11:00:22+00:00"
         },
         {
             "name": "symfony/console",
