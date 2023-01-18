@@ -84,7 +84,7 @@ class ValidateHttpsSignature
 
         $signature = hash_hmac('sha256', $original, call_user_func($this->keyResolver));
 
-        /* @psalm-suppress PossiblyInvalidCast */
+        /** @psalm-suppress PossiblyInvalidCast */
         return hash_equals($signature, (string) $request->query('signature', ''));
     }
 
