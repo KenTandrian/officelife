@@ -11,8 +11,16 @@ use Illuminate\Routing\Exceptions\InvalidSignatureException;
 
 class ValidateHttpsSignature
 {
+    /**
+     * The encryption key resolver callable.
+     *
+     * @var callable
+     */
     public $keyResolver;
 
+    /**
+     * Set the encryption key resolver.
+     */
     public function __construct()
     {
         $this->keyResolver = function () {
@@ -41,13 +49,29 @@ class ValidateHttpsSignature
 
     /**
      * Determine if the given request has a valid signature.
+     *
      * copied and modified from
      * vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php:363.
+     *
      * @param  \Illuminate\Http\Request  $request
      * @param  bool  $absolute
      * @return bool
      */
     public function hasValidSignature(Request $request, $absolute = true)
+    {
+        return $this->hasCorrectSignature($request, $absolute)
+            && $this->signatureHasNotExpired($request);
+    }
+
+    /**
+     * Determine if the signature from the given request matches the URL.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  bool  $absolute
+     * @param  array  $ignoreQuery
+     * @return bool
+     */
+    public function hasCorrectSignature(Request $request, $absolute = true, array $ignoreQuery = [])
     {
         $url = $absolute ? $request->url() : '/'.$request->path();
 
@@ -58,11 +82,21 @@ class ValidateHttpsSignature
             Arr::except($request->query(), 'signature')
         ), '?');
 
-        $expires = $request->query('expires');
-
         $signature = hash_hmac('sha256', $original, call_user_func($this->keyResolver));
 
-        return  hash_equals($signature, (string) $request->query('signature', '')) &&
-            ! ($expires && Carbon::now()->getTimestamp() > $expires);
+        return hash_equals($signature, (string) $request->query('signature', ''));
+    }
+
+    /**
+     * Determine if the expires timestamp from the given request is not from the past.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    public function signatureHasNotExpired(Request $request)
+    {
+        $expires = $request->query('expires');
+
+        return ! ($expires && Carbon::now()->getTimestamp() > $expires);
     }
 }
