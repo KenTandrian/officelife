@@ -61,7 +61,7 @@
         "@inertiajs/progress": "^0.2.4",
         "@popperjs/core": "^2.11",
         "@sentry/browser": "^7.31.0",
-        "@sentry/integrations": "^6.2.5",
+        "@sentry/integrations": "^7.31.1",
         "@sentry/tracing": "^7.31.0",
         "@vue/compiler-sfc": "3.2.45",
         "ant-design-vue": "^3.2.15",
