@@ -131,8 +131,13 @@
 
           <!-- add a new row -->
           <form v-if="displayNewEntry" class="mb3 pa3 ba br2 bb-gray bg-gray" @submit.prevent="addBlankTimesheetRow()">
+            <!-- display loading when projects are being fetched -->
+            <div v-if="projectsLoading" class="tc flex flex-column">
+              <ball-pulse-loader color="#ccc" class="mb2"/>
+              Loading projects...
+            </div>
             <!-- message to display if there are no projects in the account -->
-            <div v-if="projects.length == 0" class="tc">
+            <div v-else-if="projects.length == 0" class="tc">
               {{ $t('dashboard.timesheet_no_projects') }}
               <inertia-link :href="'/' + $page.props.auth.company.id + '/company/projects/create'">{{ $t('dashboard.timesheet_create_project') }}</inertia-link>
             </div>
@@ -153,9 +158,15 @@
               />
 
               <div v-if="displayTasks">
-                <label class="db mb-2">
-                  {{ $t('dashboard.timesheet_create_choose_task') }}
-                </label>
+                <div class="flex">
+                  <label class="mb-2">
+                    {{ $t('dashboard.timesheet_create_choose_task') }}
+                  </label>
+                  <!-- display loading when tasks are being fetched -->
+                  <div v-if="tasksLoading">
+                    <ball-pulse-loader color="#ccc" class="ml2"/>
+                  </div>
+                </div>
                 <a-select
                   v-model:value="form.task"
                   :placeholder="$t('dashboard.timesheet_create_choose_task')"
@@ -171,7 +182,9 @@
 
             <!-- Actions -->
             <div v-if="projects.length != 0">
-              <loading-button :class="'btn add w-auto-ns w-100 mb2 mr2 pv2 ph3'" :state="loadingState" :text="$t('app.add')" :cypress-selector="'submit-timesheet-new-row'" />
+              <loading-button :class="'btn add w-auto-ns w-100 mb2 mr2 pv2 ph3'" :state="loadingState" :text="$t('app.add')"
+                              :cypress-selector="'submit-timesheet-new-row'" :disabled="!form.project || !form.task"
+              />
               <a data-cy="cancel-button" class="btn dib tc w-auto-ns w-100 mb2 pv2 ph3" @click.prevent="displayNewEntry = false">
                 {{ $t('app.cancel') }}
               </a>
@@ -233,6 +246,7 @@ import TimesheetRow from '@/Pages/Dashboard/Timesheet/Partials/TimesheetRow';
 import TimesheetHeader from '@/Pages/Dashboard/Timesheet/Partials/TimesheetHeader';
 import LoadingButton from '@/Shared/LoadingButton';
 import Help from '@/Shared/Help';
+import BallPulseLoader from 'vue-loaders/dist/loaders/ball-pulse';
 
 export default {
   components: {
@@ -242,6 +256,7 @@ export default {
     TimesheetHeader,
     LoadingButton,
     Help,
+    'ball-pulse-loader': BallPulseLoader.component,
   },
 
   props: {
@@ -302,7 +317,9 @@ export default {
       timesheetRows: [],
       timesheetStatus: null,
       projects: [],
+      projectsLoading: false,
       tasks: [],
+      tasksLoading: false,
       dailyStats: [0, 0, 0, 0, 0, 0, 0, 0],
       weeklyTotalHumanReadable: 0,
     };
@@ -360,22 +377,30 @@ export default {
     },
 
     getProjectList() {
+      this.projectsLoading = true;
       axios.get(this.timesheet.url.project_list)
         .then(response => {
           this.projects = response.data.data;
         })
         .catch(error => {
           this.form.errors = error.response.data;
+        })
+        .finally(() => {
+          this.projectsLoading = false;
         });
     },
 
     getTasksList() {
+      this.tasksLoading = true;
       axios.get(`/${this.$page.props.auth.company.id}/dashboard/timesheet/${this.timesheet.id}/projects/${this.newEntry.projectId}/tasks`)
         .then(response => {
           this.tasks = response.data.data;
         })
         .catch(error => {
           this.form.errors = error.response.data;
+        })
+        .finally(() => {
+          this.tasksLoading = false;
         });
     },
 
@@ -392,6 +417,7 @@ export default {
     },
 
     addBlankTimesheetRow() {
+      if (!this.form.project || !this.form.task) return;
       this.timesheetRows.push({
         project_id: this.newEntry.projectId,
         project_name: this.newEntry.projectName,
@@ -430,7 +456,6 @@ export default {
           },
         ],
       });
-
       this.displayNewEntry = false;
     },
 

@@ -385,8 +385,9 @@ class DashboardMeViewHelper
     public static function projects(Employee $employee, Company $company): ?Collection
     {
         $openProjects = $employee->projects()
-            ->where('status', Project::STARTED)
-            ->orWhere('status', Project::PAUSED)
+            ->where(function ($q) {
+                $q->where('status', Project::STARTED)->orWhere('status', Project::PAUSED);
+            })
             ->with('employees')
             ->get();
 
