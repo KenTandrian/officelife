@@ -104,6 +104,7 @@
         <InvalidPropertyAssignmentValue errorLevel="suppress" />
         <PossibleRawObjectIteration errorLevel="suppress" />
         <PossiblyInvalidArrayOffset errorLevel="suppress" />
+        <UndefinedMagicMethod errorLevel="info" />
 
         <UnsafeInstantiation>
             <errorLevel type="suppress">
