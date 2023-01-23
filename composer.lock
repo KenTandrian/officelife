@@ -2748,16 +2748,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.12.1",
+            "version": "3.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "b934123c1f11ada6363d057d691e3065fa6d6d49"
+                "reference": "f6377c709d2275ed6feaf63e44be7a7162b0e77f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/b934123c1f11ada6363d057d691e3065fa6d6d49",
-                "reference": "b934123c1f11ada6363d057d691e3065fa6d6d49",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/f6377c709d2275ed6feaf63e44be7a7162b0e77f",
+                "reference": "f6377c709d2275ed6feaf63e44be7a7162b0e77f",
                 "shasum": ""
             },
             "require": {
@@ -2819,7 +2819,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.12.1"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.12.2"
             },
             "funding": [
                 {
@@ -2835,7 +2835,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-06T16:34:48+00:00"
+            "time": "2023-01-19T12:02:19+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -3856,16 +3856,16 @@
         },
         {
             "name": "openspout/openspout",
-            "version": "v4.12.0",
+            "version": "v4.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/openspout/openspout.git",
-                "reference": "3c645504a09c9441ab68068bdfe31eee6d13f086"
+                "reference": "7359af2ffdd4523f53f182f97347389362b9d352"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/openspout/openspout/zipball/3c645504a09c9441ab68068bdfe31eee6d13f086",
-                "reference": "3c645504a09c9441ab68068bdfe31eee6d13f086",
+                "url": "https://api.github.com/repos/openspout/openspout/zipball/7359af2ffdd4523f53f182f97347389362b9d352",
+                "reference": "7359af2ffdd4523f53f182f97347389362b9d352",
                 "shasum": ""
             },
             "require": {
@@ -3933,7 +3933,7 @@
             ],
             "support": {
                 "issues": "https://github.com/openspout/openspout/issues",
-                "source": "https://github.com/openspout/openspout/tree/v4.12.0"
+                "source": "https://github.com/openspout/openspout/tree/v4.12.1"
             },
             "funding": [
                 {
@@ -3945,7 +3945,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-10T07:39:16+00:00"
+            "time": "2023-01-19T13:22:14+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",
@@ -6248,16 +6248,16 @@
         },
         {
             "name": "spatie/simple-excel",
-            "version": "3.0.1",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/simple-excel.git",
-                "reference": "119e847cf76dec40b4e823916e14dc9f374f941a"
+                "reference": "bbef9873a0182f7d2ec2add7fd7436c9e78318c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/simple-excel/zipball/119e847cf76dec40b4e823916e14dc9f374f941a",
-                "reference": "119e847cf76dec40b4e823916e14dc9f374f941a",
+                "url": "https://api.github.com/repos/spatie/simple-excel/zipball/bbef9873a0182f7d2ec2add7fd7436c9e78318c5",
+                "reference": "bbef9873a0182f7d2ec2add7fd7436c9e78318c5",
                 "shasum": ""
             },
             "require": {
@@ -6297,7 +6297,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/simple-excel/tree/3.0.1"
+                "source": "https://github.com/spatie/simple-excel/tree/3.1.0"
             },
             "funding": [
                 {
@@ -6305,7 +6305,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-17T11:00:22+00:00"
+            "time": "2023-01-20T16:52:54+00:00"
         },
         {
             "name": "symfony/console",
