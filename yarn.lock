@@ -1135,15 +1135,6 @@
     "@sentry/utils" "7.34.0"
     tslib "^1.9.3"
 
-"@sentry/core@7.33.0":
-  version "7.33.0"
-  resolved "https://registry.yarnpkg.com/@sentry/core/-/core-7.33.0.tgz#7cba1670c041fae02794729b74e9fb9d1f519755"
-  integrity sha512-mrSgUnXjxHVi0cVea1lv7gC/Y66ya2a3atCHaPEij/+l+3APg5d0Ixt1zMx5YllMiZKf6wpxlZ0uwXcqdAAw+w==
-  dependencies:
-    "@sentry/types" "7.33.0"
-    "@sentry/utils" "7.33.0"
-    tslib "^1.9.3"
-
 "@sentry/core@7.34.0":
   version "7.34.0"
   resolved "https://registry.yarnpkg.com/@sentry/core/-/core-7.34.0.tgz#bfda8d386cf7343200aa9fb7a7a26e99b839fc0c"
@@ -1187,11 +1178,6 @@
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-6.19.6.tgz#70513f9dca05d23d7ab9c2a6cb08d4db6763ca67"
   integrity sha512-QH34LMJidEUPZK78l+Frt3AaVFJhEmIi05Zf8WHd9/iTt+OqvCHBgq49DDr1FWFqyYWm/QgW/3bIoikFpfsXyQ==
 
-"@sentry/types@7.33.0":
-  version "7.33.0"
-  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.33.0.tgz#7d4893a783360a868382e5194b50dbf034ba23c0"
-  integrity sha512-5kkmYjtBWSbPxfYGiXdZFPS6xpFBNlXvDqeX4NpCFXz6/LiEDn6tZ61kuCSFb8MZlyqyCX5WsP3aiI2FJfpGIA==
-
 "@sentry/types@7.34.0":
   version "7.34.0"
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.34.0.tgz#e0dc6a927dd13e4cacbca7bfee67a088885e8309"
@@ -1203,14 +1189,6 @@
   integrity sha512-fAMWcsguL0632eWrROp/vhPgI7sBj/JROWVPzpabwVkm9z3m1rQm6iLFn4qfkZL8Ozy6NVZPXOQ7EXmeU24byg==
   dependencies:
     "@sentry/types" "6.19.6"
-    tslib "^1.9.3"
-
-"@sentry/utils@7.33.0":
-  version "7.33.0"
-  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-7.33.0.tgz#e6910139328b49b9cc21186521bdb10390dfd915"
-  integrity sha512-msp02GV1gOfaN5FjKjWxI00rtbYLXEE5cTGldhs/Dt9KI63dDk1nwPDkSLhg6joqRItAq0thlBh6un717HdWbg==
-  dependencies:
-    "@sentry/types" "7.33.0"
     tslib "^1.9.3"
 
 "@sentry/utils@7.34.0":
@@ -2116,9 +2094,9 @@ axios@^0.21.1:
     follow-redirects "^1.14.0"
 
 axios@^1.2:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.2.5.tgz#858c129d286e7ee3b1e970961cde410ba3ea3740"
-  integrity sha512-9pU/8mmjSSOb4CXVsvGIevN+MlO/t9OWtKadTaLuN85Gge3HGorUckgp8A/2FH4V4hJ7JuQ3LIeI7KAV9ITZrQ==
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.2.6.tgz#eacb6d065baa11bad5959e7ffa0cb6745c65f392"
+  integrity sha512-rC/7F08XxZwjMV4iuWv+JpD3E0Ksqg9nac4IIg6RwNuF0JTeWoCo/mBNG54+tNhhI11G3/VDRbdDQTs9hGp4pQ==
   dependencies:
     follow-redirects "^1.15.0"
     form-data "^4.0.0"
