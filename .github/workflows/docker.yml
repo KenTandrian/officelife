@@ -104,7 +104,7 @@ jobs:
 
       - name: Docker build
         id: docker_build
-        uses: docker/build-push-action@v3 # Upgraded from v2
+        uses: docker/build-push-action@v4 # Upgraded from v2
         with:
           push: ${{ github.ref == 'refs/heads/main' }}
           tags: ghcr.io/officelifehq/officelife-dev:main-${{ matrix.variant }}
