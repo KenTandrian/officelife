@@ -18,7 +18,7 @@
     "laravel/fortify": "^1.7",
     "laravel/framework": "^9.0",
     "laravel/helpers": "^1.1",
-    "laravel/jetstream": "^2.3",
+    "laravel/jetstream": "^3.0",
     "laravel/sanctum": "^3.2",
     "laravel/socialite": "^5.2",
     "laravel/tinker": "^2.0",
