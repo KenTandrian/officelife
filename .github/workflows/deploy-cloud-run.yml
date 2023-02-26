@@ -15,8 +15,8 @@ env:
   GAR_LOCATION: ${{ secrets.REGION }} # TODO: update Artifact Registry location
   REPOSITORY: ${{ secrets.GAR_REPOSITORY }} # TODO: update Artifact Registry repository name
   APP_URL: https://officelife-of7z476jgq-as.a.run.app
-  php-version: '8.1'
-  node-version: 18
+  PHP_VERSION: '8.1'
+  NODE_VERSION: 18
 
 jobs:
   deploy:
@@ -30,10 +30,10 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v3
 
-      - name: Setup PHP ${{ env.php-version }}
-        uses: shivammathur/setup-php@v2
+      - name: Setup PHP ${{ env.PHP_VERSION }}
+        uses: shivammathur/setup-php@v3
         with:
-          php-version: ${{ env.php-version }}
+          php-version: ${{ env.PHP_VERSION }}
           extensions: mbstring, dom, fileinfo
           coverage: none
       - name: Check PHP Version
@@ -54,19 +54,19 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ env.php-version }}-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-composer-${{ env.PHP_VERSION }}-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            ${{ runner.os }}-composer-${{ env.php-version }}-${{ hashFiles('**/composer.lock') }}
-            ${{ runner.os }}-composer-${{ env.php-version }}
+            ${{ runner.os }}-composer-${{ env.PHP_VERSION }}-${{ hashFiles('**/composer.lock') }}
+            ${{ runner.os }}-composer-${{ env.PHP_VERSION }}
             ${{ runner.os }}-composer-
       - name: Install composer dependencies
         run: composer install --no-progress --no-interaction --prefer-dist --optimize-autoloader
 
       # Yarn
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.node-version }}
+          node-version: ${{ env.NODE_VERSION }}
       - name: Get yarn cache directory path
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -97,8 +97,8 @@ jobs:
       - name: Get version
         id: version
         run: |
-          echo "::set-output name=version::$(git describe --abbrev=0 --tags | sed 's/^v//')"
-          echo "::set-output name=release::$(git describe --abbrev=0 --tags --exact-match $GITHUB_SHA 2>/dev/null || git log --pretty="%h" -n1 $GITHUB_SHA)"
+          echo "version=$(git describe --abbrev=0 --tags | sed 's/^v//')" >> $GITHUB_OUTPUT
+          echo "release=$(git describe --abbrev=0 --tags --exact-match $GITHUB_SHA 2>/dev/null || git log --pretty="%h" -n1 $GITHUB_SHA)" >> $GITHUB_OUTPUT
       - name: Prepare environment
         run: |
           { \
@@ -108,6 +108,7 @@ jobs:
       - name: Build assets
         run: yarn run production
 
+      # Authenticate to Google Cloud
       - name: Google Auth
         id: auth
         uses: 'google-github-actions/auth@v1'
