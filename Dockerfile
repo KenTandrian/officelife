@@ -132,12 +132,14 @@ ARG DB_PORT
 ARG DB_DATABASE
 ARG DB_USERNAME
 ARG DB_PASSWORD
+ARG APP_URL
 ENV DB_CONNECTION=$DB_CONNECTION \
     DB_HOST=$DB_HOST \
     DB_PORT=$DB_PORT \
     DB_DATABASE=$DB_DATABASE \
     DB_USERNAME=$DB_USERNAME \
-    DB_PASSWORD=$DB_PASSWORD
+    DB_PASSWORD=$DB_PASSWORD \
+    APP_URL=${APP_URL}
 
 RUN set -ex; \
     fetchDeps=" \
@@ -147,7 +149,9 @@ RUN set -ex; \
     apt-get install -y --no-install-recommends $fetchDeps; \
     \
     sed -e ' \
+        s/APP_ENV=.*/APP_ENV=production/; \
         s/APP_DEBUG=.*/APP_DEBUG=false/; \
+        s/APP_URL=.*/APP_URL=${APP_URL}/; \
         s/LOG_CHANNEL=.*/LOG_CHANNEL=errorlog/; \
         s/DB_CONNECTION=.*/DB_CONNECTION=${DB_CONNECTION}/; \
         s/DB_DATABASE=.*/DB_DATABASE=${DB_DATABASE}/; \

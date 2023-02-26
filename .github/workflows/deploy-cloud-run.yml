@@ -14,6 +14,7 @@ env:
   REGION: ${{ secrets.REGION }} # TODO: update Cloud Run service region
   GAR_LOCATION: ${{ secrets.REGION }} # TODO: update Artifact Registry location
   REPOSITORY: ${{ secrets.GAR_REPOSITORY }} # TODO: update Artifact Registry repository name
+  APP_URL: https://officelife-of7z476jgq-as.a.run.app
   php-version: '8.1'
   node-version: 18
 
@@ -140,6 +141,7 @@ jobs:
           --build-arg DB_DATABASE=${{ secrets.DB_DATABASE }}
           --build-arg DB_USERNAME=${{ secrets.DB_USERNAME }}
           --build-arg DB_PASSWORD=${{ secrets.DB_PASSWORD }}
+          --build-arg APP_URL=${{ env.APP_URL }}
 
       - name: Push Container
         run: docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}"
@@ -153,8 +155,13 @@ jobs:
           --allow-unauthenticated
 
       # If required, use the Cloud Run url output in later steps
+      - name: Get Cloud Run URL
+        id: url
+        run: |
+          echo "url=$(gcloud run services describe ${{ env.SERVICE }} --format='value(status.url)' --region ${{ env.REGION }})" >> $GITHUB_OUTPUT
+
       - name: Test Output
-        run: curl ${{ steps.deploy.outputs.url }}
+        run: curl ${{ steps.url.outputs.url }}
 
       - name: Show Output
-        run: echo ${{ steps.deploy.outputs.url }}
+        run: echo ${{ steps.url.outputs.url }}
