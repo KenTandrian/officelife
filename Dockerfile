@@ -37,7 +37,7 @@ RUN set -ex; \
     \
     debMultiarch="$(dpkg-architecture --query DEB_BUILD_MULTIARCH)"; \
     docker-php-ext-configure intl; \
-    docker =-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql; \
+    docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql; \
     docker-php-ext-install -j$(nproc) \
         intl \
         zip \
