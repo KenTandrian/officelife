@@ -51,14 +51,14 @@ jobs:
           registry: '${{ env.GAR_LOCATION }}-docker.pkg.dev'
 
       - name: Build Container
-        run: |-
-          docker build .
-          -t "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}"
-          --build-arg DB_CONNECTION=${{ secrets.DB_CONNECTION }}
-          --build-arg DB_HOST=${{ secrets.DB_HOST }}
-          --build-arg DB_PORT=${{ secrets.DB_PORT }}
-          --build-arg DB_DATABASE=${{ secrets.DB_DATABASE }}
-          --build-arg DB_USERNAME=${{ secrets.DB_USERNAME }}
+        run: |
+          docker build . \
+          -t "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}" \
+          --build-arg DB_CONNECTION=${{ secrets.DB_CONNECTION }} \
+          --build-arg DB_HOST=${{ secrets.DB_HOST }} \
+          --build-arg DB_PORT=${{ secrets.DB_PORT }} \
+          --build-arg DB_DATABASE=${{ secrets.DB_DATABASE }} \
+          --build-arg DB_USERNAME=${{ secrets.DB_USERNAME }} \
           --build-arg DB_PASSWORD=${{ secrets.DB_PASSWORD }}
 
       - name: Push Container
