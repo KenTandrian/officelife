@@ -59,7 +59,7 @@ jobs:
           --build-arg DB_PORT=${{ secrets.DB_PORT }}
           --build-arg DB_DATABASE=${{ secrets.DB_DATABASE }}
           --build-arg DB_USERNAME=${{ secrets.DB_USERNAME }}
-          --build-arg DB_PASSWORD="'${{ secrets.DB_PASSWORD }}'"
+          --build-arg DB_PASSWORD=${{ secrets.DB_PASSWORD }}
 
       - name: Push Container
         run: docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}"
