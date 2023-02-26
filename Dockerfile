@@ -21,7 +21,7 @@ RUN set -ex; \
 # add ppa:ondrej/php
 RUN set -ex; \
     apt-get update; \
-    apt-get install -y software-properties-common \
+    apt-get install -y software-properties-common; \
     LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
 
 # Install required PHP extensions
