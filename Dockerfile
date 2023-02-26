@@ -18,7 +18,7 @@ RUN set -ex; \
     ; \
     rm -rf /var/lib/apt/lists/*
 
-# add ppa:ondrej/php
+# add packages.sury.org/php
 RUN set -ex; \
     rm -f /usr/share/keyrings/deb.sury.org-php.gpg; \
     rm -f /etc/apt/sources.list.d/php.list; \
@@ -44,11 +44,11 @@ RUN set -ex; \
         libxml2-dev \
         libfreetype6-dev \
         libmemcached-dev \
-        php8.1-pgsql \
     ; \
     \
     debMultiarch="$(dpkg-architecture --query DEB_BUILD_MULTIARCH)"; \
     docker-php-ext-configure intl; \
+    docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql; \
     docker-php-ext-install -j$(nproc) \
         intl \
         zip \
@@ -56,6 +56,7 @@ RUN set -ex; \
         pdo_mysql \
         mysqli \
         pdo_pgsql \
+        pgsql \
         pdo_sqlite \
     ; \
     \
