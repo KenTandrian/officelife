@@ -43,6 +43,7 @@ RUN set -ex; \
         pdo_mysql \
         mysqli \
         pdo_pgsql \
+        pgsql \
         pdo_sqlite \
     ; \
     \
