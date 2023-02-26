@@ -14,6 +14,8 @@ env:
   REGION: ${{ secrets.REGION }} # TODO: update Cloud Run service region
   GAR_LOCATION: ${{ secrets.REGION }} # TODO: update Artifact Registry location
   REPOSITORY: ${{ secrets.GAR_REPOSITORY }} # TODO: update Artifact Registry repository name
+  php-version: '8.1'
+  node-version: 18
 
 jobs:
   deploy:
@@ -26,6 +28,84 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
+
+      - name: Setup PHP ${{ env.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.php-version }}
+          extensions: mbstring, dom, fileinfo
+          coverage: none
+      - name: Check PHP Version
+        run: php -v
+      - name: Check Composer Version
+        run: composer -V
+      - name: Check PHP Extensions
+        run: php -m
+
+      # Composer
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Cache composer files
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ env.php-version }}-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-${{ env.php-version }}-${{ hashFiles('**/composer.lock') }}
+            ${{ runner.os }}-composer-${{ env.php-version }}
+            ${{ runner.os }}-composer-
+      - name: Install composer dependencies
+        run: composer install --no-progress --no-interaction --prefer-dist --optimize-autoloader
+
+      # Yarn
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.node-version }}
+      - name: Get yarn cache directory path
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache yarn files
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+            ${{ runner.os }}-yarn-
+      - name: Install yarn dependencies
+        run: yarn run inst
+      - name: Lint files
+        run: yarn run lint:all
+
+      - name: Check if there is any file update needed
+        id: check
+        run: |
+          status=$(git status --porcelain)
+          if [ -z "$status" ]; then
+            echo "Nothing to push, already up to date."
+          else
+            echo -e "Waiting modifications:\n$status"
+            echo "::error::Resources are not up to date. Please rebuild with: 'yarn run lint:all' and 'yarn run prod'."
+            exit -1
+          fi
+      - name: Get version
+        id: version
+        run: |
+          echo "::set-output name=version::$(git describe --abbrev=0 --tags | sed 's/^v//')"
+          echo "::set-output name=release::$(git describe --abbrev=0 --tags --exact-match $GITHUB_SHA 2>/dev/null || git log --pretty="%h" -n1 $GITHUB_SHA)"
+      - name: Prepare environment
+        run: |
+          { \
+            echo "MIX_PROD_SOURCE_MAPS=true"; \
+            echo "MIX_SENTRY_RELEASE=${{ steps.version.outputs.version }}"; \
+          } | tee .env
+      - name: Build assets
+        run: yarn run production
 
       - name: Google Auth
         id: auth
