@@ -168,6 +168,10 @@ COPY docker/entrypoint.sh \
     docker/cron.sh \
     /usr/local/bin/
 
+# change access permission for entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+# expose port 80
 EXPOSE 80
 CMD ["apache2-foreground"]
