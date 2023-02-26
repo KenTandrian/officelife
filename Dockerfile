@@ -15,7 +15,6 @@ RUN set -ex; \
     apt-get install -y --no-install-recommends \
         bash \
         busybox-static \
-        apt-utils \
     ; \
     rm -rf /var/lib/apt/lists/*
 
@@ -34,6 +33,7 @@ RUN set -ex; \
         libxml2-dev \
         libfreetype6-dev \
         libmemcached-dev \
+        php8.1-pgsql \
     ; \
     \
     debMultiarch="$(dpkg-architecture --query DEB_BUILD_MULTIARCH)"; \
@@ -47,18 +47,20 @@ RUN set -ex; \
         pdo_pgsql \
         pdo_sqlite \
     ; \
-    ln -s pdo_pgsql.so pdo_pgsql.so.so; \
     \
 # pecl will claim success even if one install fails, so we need to perform each install separately
-    pecl install APCu-5.1.20; \
-    pecl install memcached-3.1.5; \
-    pecl install redis-5.3.4; \
+    pecl install APCu-5.1.22; \
+    pecl install memcached-3.2.0; \
+    pecl install redis-5.3.7; \
     \
     docker-php-ext-enable \
         apcu \
         memcached \
         redis \
     ; \
+    \
+# check php loaded modules
+    php --modules; \
     \
 # reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies
     apt-mark auto '.*' > /dev/null; \
