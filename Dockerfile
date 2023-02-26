@@ -15,6 +15,7 @@ RUN set -ex; \
     apt-get install -y --no-install-recommends \
         bash \
         busybox-static \
+        apt-utils \
     ; \
     rm -rf /var/lib/apt/lists/*
 
@@ -37,7 +38,6 @@ RUN set -ex; \
     \
     debMultiarch="$(dpkg-architecture --query DEB_BUILD_MULTIARCH)"; \
     docker-php-ext-configure intl; \
-    docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql; \
     docker-php-ext-install -j$(nproc) \
         intl \
         zip \
@@ -45,9 +45,9 @@ RUN set -ex; \
         pdo_mysql \
         mysqli \
         pdo_pgsql \
-        pgsql \
         pdo_sqlite \
     ; \
+    ln -s pdo_pgsql.so pdo_pgsql.so.so; \
     \
 # pecl will claim success even if one install fails, so we need to perform each install separately
     pecl install APCu-5.1.20; \
