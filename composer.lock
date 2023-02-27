@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3946d47e86d9806792d543f92f4a70f",
+    "content-hash": "f14c1f94b0aa15b20018344beafed835",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -11109,24 +11109,25 @@
         },
         {
             "name": "graham-campbell/testbench-core",
-            "version": "v3.4.0",
+            "version": "v4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-TestBench-Core.git",
-                "reference": "a55cfcb8fbbfa1c3828f3f450e1570b8125c2fd0"
+                "reference": "421fd2bedc07c7bb1e57fc01ce8d4e0e6e10378d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench-Core/zipball/a55cfcb8fbbfa1c3828f3f450e1570b8125c2fd0",
-                "reference": "a55cfcb8fbbfa1c3828f3f450e1570b8125c2fd0",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-TestBench-Core/zipball/421fd2bedc07c7bb1e57fc01ce8d4e0e6e10378d",
+                "reference": "421fd2bedc07c7bb1e57fc01ce8d4e0e6e10378d",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0 || ^8.0"
+                "php": "^7.4.15 || ^8.0.2",
+                "symfony/polyfill-php80": "^1.26"
             },
             "require-dev": {
-                "graham-campbell/analyzer": "^2.4 || ^3.0",
-                "phpunit/phpunit": "^6.5 || ^7.5 || ^8.0 || ^9.0 || ^10.0"
+                "graham-campbell/analyzer": "^4.0",
+                "phpunit/phpunit": "^9.5 || ^10.0"
             },
             "suggest": {
                 "illuminate/support": "Required to use the laravel trait.",
@@ -11164,7 +11165,7 @@
             ],
             "support": {
                 "issues": "https://github.com/GrahamCampbell/Laravel-TestBench-Core/issues",
-                "source": "https://github.com/GrahamCampbell/Laravel-TestBench-Core/tree/v3.4.0"
+                "source": "https://github.com/GrahamCampbell/Laravel-TestBench-Core/tree/v4.0.0"
             },
             "funding": [
                 {
@@ -11176,7 +11177,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-24T01:46:14+00:00"
+            "time": "2023-02-25T20:13:18+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
