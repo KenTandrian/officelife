@@ -48,11 +48,9 @@ RUN set -ex; \
     \
     debMultiarch="$(dpkg-architecture --query DEB_BUILD_MULTIARCH)"; \
     docker-php-ext-configure intl; \
-    docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql; \
     docker-php-ext-install -j$(nproc) \
         intl \
         zip \
-        pdo \
         pdo_mysql \
         mysqli \
         pdo_pgsql \
@@ -143,21 +141,6 @@ LABEL org.opencontainers.image.revision="" \
       org.opencontainers.image.version="main"
 COPY . /var/www/html
 
-ARG DB_CONNECTION
-ARG DB_HOST
-ARG DB_PORT
-ARG DB_DATABASE
-ARG DB_USERNAME
-ARG DB_PASSWORD
-ARG APP_URL
-ENV DB_CONNECTION=$DB_CONNECTION \
-    DB_HOST=$DB_HOST \
-    DB_PORT=$DB_PORT \
-    DB_DATABASE=$DB_DATABASE \
-    DB_USERNAME=$DB_USERNAME \
-    DB_PASSWORD=$DB_PASSWORD \
-    APP_URL=${APP_URL}
-
 RUN set -ex; \
     fetchDeps=" \
         gnupg \
@@ -167,15 +150,10 @@ RUN set -ex; \
     \
     sed -e ' \
         s/APP_ENV=.*/APP_ENV=production/; \
-        s/APP_DEBUG=.*/APP_DEBUG=false/; \
-        s/APP_URL=.*/APP_URL=${APP_URL}/; \
         s/LOG_CHANNEL=.*/LOG_CHANNEL=errorlog/; \
-        s/DB_CONNECTION=.*/DB_CONNECTION=${DB_CONNECTION}/; \
-        s/DB_DATABASE=.*/DB_DATABASE=${DB_DATABASE}/; \
-        s/DB_HOST=.*/DB_HOST=${DB_HOST}/; \
-        s/DB_PORT=.*/DB_PORT=${DB_PORT}/; \
-        s/DB_USERNAME=.*/DB_USERNAME=${DB_USERNAME}/; \
-        s/DB_PASSWORD=.*/DB_PASSWORD=${DB_PASSWORD}/; \
+        s/SESSION_DRIVER=.*/SESSION_DRIVER=database/; \
+        s/CACHE_DRIVER=.*/CACHE_DRIVER=database/; \
+        s/QUEUE_CONNECTION=.*/QUEUE_CONNECTION=database/; \
         ' \
         /var/www/html/.env.example > /var/www/html/.env; \
     \
