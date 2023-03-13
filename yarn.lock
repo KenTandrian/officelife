@@ -6004,10 +6004,10 @@ mkdirp@^0.5.5:
   dependencies:
     minimist "^1.2.6"
 
-mrm-core@^7.1.13:
-  version "7.1.13"
-  resolved "https://registry.yarnpkg.com/mrm-core/-/mrm-core-7.1.13.tgz#7ee0004481ac02b94ce0f8d93894aebda2bc542e"
-  integrity sha512-+AlsNuryLYw9HWqf+HBcNXULiwBEfcmb2VDccvYyg71x25bC8nJOn0YJA13x1PUUEF0aEbc5RTfqa6weMtRHaw==
+mrm-core@^7.1.14:
+  version "7.1.14"
+  resolved "https://registry.yarnpkg.com/mrm-core/-/mrm-core-7.1.14.tgz#3f8a64f00ca1f131c12bee7f07a8bfdfac01bf07"
+  integrity sha512-bm8ssAwBYusx0TJ9vDYaExx0fPPLISETvRpZGIa0kjq9V3ZpTBgyyjFtNpqsgUlvzoQAVrMi87OeRBnm5z5qng==
   dependencies:
     babel-code-frame "^6.26.0"
     comment-json "^2.2.0"
@@ -6030,10 +6030,10 @@ mrm-core@^7.1.13:
     webpack-merge "^4.2.2"
     yaml "^2.0.0-1"
 
-mrm@^4.1.13:
-  version "4.1.13"
-  resolved "https://registry.yarnpkg.com/mrm/-/mrm-4.1.13.tgz#3031dcb056fac2a8961960f260605b1e82d04bf4"
-  integrity sha512-IvMv4fVFfzQ6wUlC4eCl1sCzyMyz+yEjV4sHux7UQRIylJ8iCqFgM9JxpdKA1dPmEuf0s+itFJsp5CHMIpCdMw==
+mrm@^4.1.14:
+  version "4.1.14"
+  resolved "https://registry.yarnpkg.com/mrm/-/mrm-4.1.14.tgz#6670ef35a9c492455ea544b254c0ae3b2c605817"
+  integrity sha512-EDpU0QToiCBYMQxaciMBfdQGsxQgQNRY7+75JrfNEGsDgUEz2n3qW8548Y0ZKQJ04jOfQivUa7112ArVx+g4WQ==
   dependencies:
     git-username "^1.0.0"
     glob "^7.1.6"
@@ -6046,7 +6046,7 @@ mrm@^4.1.13:
     longest "^2.0.1"
     middleearth-names "^1.1.0"
     minimist "^1.2.0"
-    mrm-core "^7.1.13"
+    mrm-core "^7.1.14"
     semver-utils "^1.1.4"
     update-notifier "^4.1.0"
     user-home "^2.0.0"
