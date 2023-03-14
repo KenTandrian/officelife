@@ -15,24 +15,24 @@ name: Deploy to Cloud Run (Dev)
 
 on:
   push:
-    branches: [deploy]
+    branches: [dev]
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 env:
-  PROJECT_ID: ${{ secrets.PROJECT_ID }} # TODO: update Google Cloud project id
-  SERVICE: ${{ secrets.SERVICE }} # TODO: update Cloud Run service name
-  REGION: ${{ secrets.REGION }} # TODO: update Cloud Run service region
-  GAR_LOCATION: ${{ secrets.REGION }} # TODO: update Artifact Registry location
-  REPOSITORY: ${{ secrets.GAR_REPOSITORY }} # TODO: update Artifact Registry repository name
+  PROJECT_ID: ${{ secrets.PROJECT_ID }}
+  SERVICE: ${{ secrets.SERVICE }}
+  REGION: ${{ secrets.REGION }}
+  GAR_LOCATION: ${{ secrets.REGION }}
+  REPOSITORY: ${{ secrets.GAR_REPOSITORY }}
   PHP_VERSION: '8.1'
   NODE_VERSION: 18
 
 jobs:
   deploy:
-    # Add 'id-token' with the intended permissions for workload identity federation
     permissions:
       contents: 'read'
       id-token: 'write'
@@ -152,8 +152,8 @@ jobs:
         with:
           service: ${{ env.SERVICE }}
           region: ${{ env.REGION }}
+          image: ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}
           flags: '--port=80 --allow-unauthenticated'
-          image: '${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}'
 
       - name: Test Output
         run: curl ${{ steps.deploy.outputs.url }}
