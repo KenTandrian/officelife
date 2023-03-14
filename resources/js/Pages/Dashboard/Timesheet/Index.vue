@@ -133,7 +133,7 @@
           <form v-if="displayNewEntry" class="mb3 pa3 ba br2 bb-gray bg-gray" @submit.prevent="addBlankTimesheetRow()">
             <!-- display loading when projects are being fetched -->
             <div v-if="projectsLoading" class="tc flex flex-column">
-              <ball-pulse-loader color="#ccc" class="mb2"/>
+              <ball-pulse-loader color="#ccc" class="mb2" />
               Loading projects...
             </div>
             <!-- message to display if there are no projects in the account -->
@@ -164,7 +164,7 @@
                   </label>
                   <!-- display loading when tasks are being fetched -->
                   <div v-if="tasksLoading">
-                    <ball-pulse-loader color="#ccc" class="ml2"/>
+                    <ball-pulse-loader color="#ccc" class="ml2" />
                   </div>
                 </div>
                 <a-select
