@@ -26,6 +26,14 @@ updates:
     labels:
       - javascript
       - dependencies
+    ignore:
+      # For these packages, ignore all major updates
+      - dependency-name: 'husky'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'eslint-plugin-vue'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@sentry/integrations'
+        update-types: ['version-update:semver-major']
 
   # Maintain dependencies for Composer
   - package-ecosystem: composer
@@ -37,3 +45,7 @@ updates:
     labels:
       - php
       - dependencies
+    ignore:
+      # For these packages, ignore all major updates
+      - dependency-name: 'vimeo/psalm'
+        update-types: ['version-update:semver-major']
