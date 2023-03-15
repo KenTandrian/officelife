@@ -69,7 +69,7 @@
         "click-outside-vue3": "^4.0.1",
         "donutty": "^2.4.0",
         "lodash": "^4.17.20",
-        "sass": "^1.59.2",
+        "sass": "^1.59.3",
         "tachyons": "^4.12.0",
         "tiny-emitter": "^2.1.0",
         "uploadcare-vue": "^1.0.0",
