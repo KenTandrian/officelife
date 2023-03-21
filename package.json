@@ -62,7 +62,7 @@
         "@popperjs/core": "^2.11",
         "@sentry/browser": "^7.44.1",
         "@sentry/integrations": "^6.19.7",
-        "@sentry/tracing": "^7.43.0",
+        "@sentry/tracing": "^7.44.1",
         "@vue/compiler-sfc": "3.2.47",
         "ant-design-vue": "^3.2.15",
         "axios": "^1.3",
