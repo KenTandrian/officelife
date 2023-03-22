@@ -9151,16 +9151,16 @@
         },
         {
             "name": "uploadcare/uploadcare-php",
-            "version": "v4.0.2",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uploadcare/uploadcare-php.git",
-                "reference": "e715c001e264b665371add1cc4b53f728e9b005e"
+                "reference": "e6339405066b8a85d00c49faec9556b5641beb33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uploadcare/uploadcare-php/zipball/e715c001e264b665371add1cc4b53f728e9b005e",
-                "reference": "e715c001e264b665371add1cc4b53f728e9b005e",
+                "url": "https://api.github.com/repos/uploadcare/uploadcare-php/zipball/e6339405066b8a85d00c49faec9556b5641beb33",
+                "reference": "e6339405066b8a85d00c49faec9556b5641beb33",
                 "shasum": ""
             },
             "require": {
@@ -9209,9 +9209,9 @@
             "support": {
                 "email": "help@uploadcare.com",
                 "issues": "https://github.com/uploadcare/uploadcare-php/issues",
-                "source": "https://github.com/uploadcare/uploadcare-php/tree/v4.0.2"
+                "source": "https://github.com/uploadcare/uploadcare-php/tree/v4.1.0"
             },
-            "time": "2023-02-08T06:12:36+00:00"
+            "time": "2023-03-21T12:30:19+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
