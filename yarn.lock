@@ -8740,10 +8740,10 @@ uuid@^8.3.0, uuid@^8.3.2:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
 
-v-calendar@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/v-calendar/-/v-calendar-3.0.1.tgz#debc8bf1cbcc4c99dda8e6328ace3dabe0d83711"
-  integrity sha512-basXEXcmBsxHyxqjj/82vjgz5vbIMREiiUC2VOVh0pHCDXEF1birPUZD12lk8u3+5R+909WUnxu7bt0DFxCOLw==
+v-calendar@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/v-calendar/-/v-calendar-3.0.2.tgz#bfb42745909a1afecf96df78fc01981e2aa0169c"
+  integrity sha512-1rlfT8dNqevP/Akl3/rbNB5e/6vjzANzMuFGz5INZ69rZFB1l0zsBrrzjk/j/fSvnfxBGYqj6QCK9zLfgQUY5Q==
   dependencies:
     "@types/lodash" "^4.14.165"
     "@types/resize-observer-browser" "^0.1.7"
