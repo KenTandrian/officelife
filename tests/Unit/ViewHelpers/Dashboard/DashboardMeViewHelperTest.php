@@ -161,7 +161,7 @@ class DashboardMeViewHelperTest extends TestCase
         $response = DashboardMeViewHelper::currencies();
 
         $this->assertEquals(
-            179,
+            180,
             $response->count()
         );
     }
