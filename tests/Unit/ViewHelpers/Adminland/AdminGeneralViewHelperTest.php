@@ -115,7 +115,7 @@ class AdminGeneralViewHelperTest extends TestCase
         $response = AdminGeneralViewHelper::currencies();
 
         $this->assertEquals(
-            179,
+            180,
             $response->count()
         );
     }
