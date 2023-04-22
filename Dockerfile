@@ -15,6 +15,7 @@ RUN set -ex; \
     apt-get install -y --no-install-recommends \
         bash \
         busybox-static \
+        git \
     ; \
     rm -rf /var/lib/apt/lists/*
 
