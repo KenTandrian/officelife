@@ -24,7 +24,7 @@
 
 <template>
   <layout :notifications="notifications">
-    <div class="ph2 ph0-ns">
+    <div class="ph2 ph0-l">
       <breadcrumb :with-box="false"
                   :root-url="'/' + $page.props.auth.company.id + '/dashboard'"
                   :root="$t('app.breadcrumb_dashboard')"

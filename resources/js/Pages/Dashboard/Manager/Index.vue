@@ -7,32 +7,32 @@
 
 <template>
   <layout :notifications="notifications">
-    <div class="ph2 ph0-ns">
+    <div class="ph2 ph0-l">
       <dashboard-menu :employee="employee" />
+
+      <timesheet-approvals
+        :timesheets-stats="timesheetsStats"
+      />
+
+      <one-on-one-with-direct-report
+        :one-on-ones="oneOnOnes"
+      />
+
+      <contract-renewal
+        v-if="contractRenewals.length != 0"
+        :contract-renewals="contractRenewals"
+      />
+
+      <discipline-case
+        v-if="disciplinesCases.length != 0"
+        :cases="disciplinesCases"
+      />
+
+      <expense
+        :expenses="pendingExpenses"
+        :default-currency="defaultCurrency"
+      />
     </div>
-
-    <timesheet-approvals
-      :timesheets-stats="timesheetsStats"
-    />
-
-    <one-on-one-with-direct-report
-      :one-on-ones="oneOnOnes"
-    />
-
-    <contract-renewal
-      v-if="contractRenewals.length != 0"
-      :contract-renewals="contractRenewals"
-    />
-
-    <discipline-case
-      v-if="disciplinesCases.length != 0"
-      :cases="disciplinesCases"
-    />
-
-    <expense
-      :expenses="pendingExpenses"
-      :default-currency="defaultCurrency"
-    />
   </layout>
 </template>
 

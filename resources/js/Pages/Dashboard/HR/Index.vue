@@ -7,16 +7,16 @@
 
 <template>
   <layout :notifications="notifications">
-    <div class="ph2 ph0-ns">
+    <div class="ph2 ph0-l">
       <dashboard-menu :employee="employee" />
+
+      <discipline-case :data="disciplineCases" />
+
+      <timesheets
+        :data="employeesWithoutManagersWithPendingTimesheets"
+        :statistics="statisticsAboutTimesheets"
+      />
     </div>
-
-    <discipline-case :data="disciplineCases" />
-
-    <timesheets
-      :data="employeesWithoutManagersWithPendingTimesheets"
-      :statistics="statisticsAboutTimesheets"
-    />
   </layout>
 </template>
 

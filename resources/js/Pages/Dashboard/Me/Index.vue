@@ -7,7 +7,7 @@
 
 <template>
   <layout :notifications="notifications">
-    <div class="ph2 ph0-ns">
+    <div class="ph2 ph0-l">
       <dashboard-menu :employee="employee" />
 
       <projects
