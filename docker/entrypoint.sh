@@ -2,6 +2,10 @@
 
 set -Eeo pipefail
 
+# Check role
+role=${CONTAINER_ROLE:-app}
+echo "The container role is $role"
+
 # wait for the database to start
 waitfordb() {
     HOST=${DB_HOST:-mysql}
@@ -58,5 +62,8 @@ if expr "$1" : "apache" 1>/dev/null || [ "$1" = "php-fpm" ]; then
     ${ARTISAN} setup --force -vv
 
 fi
+
+# Start supervisor for queue workers
+/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
 
 exec "$@"

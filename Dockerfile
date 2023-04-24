@@ -94,6 +94,14 @@ RUN set -ex; \
     rm -f /var/spool/cron/crontabs/root; \
     echo '*/5 * * * * php /var/www/html/artisan schedule:run -v' > /var/spool/cron/crontabs/www-data
 
+# Set up supervisor for queue workers
+RUN set -ex; \
+    \
+    apt-get update; \
+    apt-get install -y --no-install-recommends supervisor
+RUN mkdir -p /etc/supervisor/logs
+COPY docker/supervisord.conf /etc/supervisor/supervisord.conf
+
 # Opcache
 ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0" \
     PHP_OPCACHE_MAX_ACCELERATED_FILES="20000" \
