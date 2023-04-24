@@ -1,6 +1,6 @@
 <template>
   <layout :no-menu="true">
-    <div class="mt4">
+    <div class="mt4 ph2">
       <div class="mw7 center br3 mb5 bg-white box relative z-1">
         <update-profile-information-form :user="$page.props.auth.user" />
 
@@ -25,7 +25,6 @@ import UpdateProfileInformationForm from './Partials/UpdateProfileInformationFor
 import UpdateLocale from './Partials/UpdateLocale';
 
 export default {
-
   components: {
     Layout,
     LogoutOtherBrowserSessionsForm,
