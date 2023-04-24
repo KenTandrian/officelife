@@ -58,6 +58,11 @@ nav {
   top: 10px;
   position: absolute;
 }
+
+.no-underline {
+  border-bottom: 0;
+  text-decoration: none;
+}
 </style>
 
 <template>
@@ -166,46 +171,32 @@ nav {
             Menu
           </label>
           <input id="menu-toggle" type="checkbox" />
-          <ul id="mobile-menu" class="list pa0 mt4 mb0">
+          <ul id="mobile-menu" class="list pa0 mt2 mb0">
             <li class="pv2 bt b--light-gray">
-              <a class="no-color b no-underline" href="">
-                Home
-              </a>
+              <a class="no-color b no-underline" href=""> <span class="mr1">🏡</span> Home </a>
             </li>
             <li class="pv2 bt b--light-gray">
-              <a class="no-color b no-underline" href="">
-                app.main_nav_people
-              </a>
+              <a class="no-color b no-underline" href=""> <span class="mr1">🙎‍♂️</span> {{ $t('app.main_nav_people') }} </a>
             </li>
             <li class="pv2 bt b--light-gray">
-              <a class="no-color b no-underline" href="">
-                app.main_nav_journal
-              </a>
+              <a class="no-color b no-underline" href=""> <span class="mr1">📒</span> {{ $t('app.main_nav_journal') }} </a>
             </li>
             <li class="pv2 bt b--light-gray">
-              <a class="no-color b no-underline" href="">
-                app.main_nav_find
-              </a>
+              <a class="no-color b no-underline pointer" @click="showFindModal"> <span class="mr1">🔍</span> {{ $t('app.main_nav_find') }} </a>
             </li>
             <li class="pv2 bt b--light-gray">
-              <a class="no-color b no-underline" href="">
-                app.main_nav_changelog
-              </a>
+              <a class="no-color b no-underline" href=""> <span class="mr1">🔄</span> {{ $t('app.main_nav_changelog') }} </a>
             </li>
             <li class="pv2 bt b--light-gray">
-              <a class="no-color b no-underline" href="">
-                app.main_nav_settings
-              </a>
+              <a class="no-color b no-underline" :href="route('profile.show')"> <span class="mr1">⚙️</span> {{ $t('app.main_nav_settings') }} </a>
             </li>
             <li class="pv2 bt b--light-gray">
-              <a class="no-color b no-underline" href="">
-                app.main_nav_signout
-              </a>
+              <a class="no-color b no-underline" href="" @click.prevent="logout"> <span class="mr1">🚪</span> {{ $t('app.main_nav_signout') }} </a>
             </li>
           </ul>
         </div>
         <div class="absolute pa2 header-logo">
-          <a href="">
+          <a class="no-underline" href="">
             <img loading="lazy" src="/img/logo.png" width="30" height="27" alt="logo" />
           </a>
         </div>
@@ -359,6 +350,10 @@ export default {
 
       this.employees = data.employees;
       this.teams = data.teams;
+    },
+
+    logout() {
+      this.$inertia.post(this.route('logout'));
     },
   },
 };

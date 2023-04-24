@@ -219,4 +219,11 @@ return [
     'duration' => ':hours h :minutes',
     'locale_en' => 'English',
     'locale_fr' => 'French',
+
+    'main_nav_people' => 'People',
+    'main_nav_journal' => 'Journal',
+    'main_nav_find' => 'Find',
+    'main_nav_changelog' => 'Changelog',
+    'main_nav_settings' => 'Settings',
+    'main_nav_signout' => 'Sign out',
 ];
