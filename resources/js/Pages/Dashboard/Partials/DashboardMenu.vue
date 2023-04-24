@@ -8,6 +8,15 @@
 .welcome {
   color: #68686B;
 }
+
+.menu-tab {
+  max-width: max-content;
+  display: flex;
+  overflow-y: auto;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: nowrap;
+}
 </style>
 
 <template>
@@ -26,7 +35,7 @@
 
     <!-- menu switcher -->
     <div class="tc">
-      <div class="cf dib btn-group">
+      <div class="cf dib btn-group menu-tab">
         <inertia-link :href="'/' + $page.props.auth.company.id + '/dashboard/me'" class="f6 fl ph3 pv2 dib pointer no-underline" :class="{'selected':(employee.dashboard_view == 'me')}">
           {{ $t('dashboard.tab_me') }}
         </inertia-link>
