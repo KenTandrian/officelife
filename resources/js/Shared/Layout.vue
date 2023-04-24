@@ -5,7 +5,7 @@
   border: 1px solid rgba(27,31,35,.15);
   box-shadow: 0 3px 12px rgba(27,31,35,.15);
   top: 63px;
-  width: 500px;
+  max-width: 500px;
   left: 0;
   right: 0;
   margin: 0 auto;
