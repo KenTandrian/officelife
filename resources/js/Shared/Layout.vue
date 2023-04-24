@@ -212,7 +212,7 @@ nav {
     <toaster />
 
     <div class="mt5 mb4 cf mw7 center tc f7">
-      <ul class="list ma0">
+      <ul class="list ma0 ph1">
         <li class="di mr2">
           <span class="mr1">🎡</span>
           Welcome to OfficeLife beta!
