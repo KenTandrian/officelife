@@ -70,18 +70,20 @@
       <div class="pa3">
         <!-- table showing the dates -->
         <div class="flex-ns justify-around pa0 tc mb3 bb bb-gray pb3">
-          <div v-for="worklogDate in worklogDates" :key="worklogDate.friendlyDate" class="dib-ns worklog-item relative pointer br2 db" :class="[{ selected: worklogDate == currentWorklogDate }, worklogDate.status]" @click.prevent="load(worklogDate)">
-            <span class="dot br-100 dib absolute" :class="worklogDate.completionRate"></span>
-            <!-- Display of the day -->
-            <span v-show="worklogDate.friendlyDate == currentDate" class="db-ns dib mb1 f6">
-              {{ $t('dashboard.team_worklog_today') }}
-            </span>
-            <span v-show="worklogDate.friendlyDate != currentDate" class="db-ns dib mb1 f6">
-              {{ worklogDate.day }}
-            </span>
+          <div v-for="worklogDate in worklogDates" :key="worklogDate.friendlyDate" class="dib-ns worklog-item relative pointer br2 db flex justify-between items-center" :class="[{ selected: worklogDate == currentWorklogDate }, worklogDate.status]" @click.prevent="load(worklogDate)">
+            <div>
+              <span class="dot br-100 dib absolute" :class="worklogDate.completionRate"></span>
+              <!-- Display of the day -->
+              <span v-show="worklogDate.friendlyDate == currentDate" class="db-ns dib mb1 f6">
+                {{ $t('dashboard.team_worklog_today') }}
+              </span>
+              <span v-show="worklogDate.friendlyDate != currentDate" class="db-ns dib mb1 f6">
+                {{ worklogDate.day }}
+              </span>
+            </div>
 
             <!-- date -->
-            <span class="db0-ns f7 mb1 dib">
+            <span class="db0-ns f7 mb1-ns dib">
               {{ worklogDate.date }}
             </span>
           </div>
