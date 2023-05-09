@@ -60,7 +60,7 @@
         "@inertiajs/inertia-vue3": "^0.3.5",
         "@inertiajs/progress": "^0.2.4",
         "@popperjs/core": "^2.11",
-        "@sentry/browser": "^7.51.0",
+        "@sentry/browser": "^7.51.2",
         "@sentry/integrations": "^6.19.7",
         "@sentry/tracing": "^7.51.0",
         "@vue/compiler-sfc": "3.2.47",
