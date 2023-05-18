@@ -63,7 +63,7 @@
         "@sentry/browser": "^7.52.1",
         "@sentry/integrations": "^6.19.7",
         "@sentry/tracing": "^7.52.1",
-        "@vue/compiler-sfc": "3.3.2",
+        "@vue/compiler-sfc": "3.3.4",
         "ant-design-vue": "^3.2.19",
         "axios": "^1.4",
         "click-outside-vue3": "^4.0.1",
