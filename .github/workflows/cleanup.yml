@@ -1,0 +1,21 @@
+name: Cleanup Old Cache
+on: workflow_dispatch
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  cleanup-composer:
+    name: Cleanup Composer
+    uses: KenTandrian/workflows/.github/workflows/cleanup.yml@main
+    with:
+      name: Composer
+      pattern: Linux-composer-8.1-
+      
+  cleanup-node:
+    name: Cleanup Node.js
+    uses: KenTandrian/workflows/.github/workflows/cleanup.yml@main
+    with:
+      name: Yarn
+      pattern: Linux-yarn-
