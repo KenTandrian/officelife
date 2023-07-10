@@ -131,28 +131,22 @@ jobs:
         run: sed -i -e "s%$GITHUB_WORKSPACE/%%g" **/*.xml
         working-directory: results/${{ matrix.connection }}
 
-      - name: Store results
-        if: ${{ false }} # Disable it for now.
-        # if: matrix.php-version == env.default-php-version
-        uses: actions/upload-artifact@v3 # Upgraded from v2
-        with:
-          name: results
-          path: results
-
   ###########################
   # Run application build
   ###########################
   build:
     runs-on: ubuntu-latest
     name: Build Application
+    env:
+      php-version: 8.1
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Setup PHP 8.1
+      - name: Setup PHP ${{ env.php-version }}
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.1
+          php-version: ${{ env.php-version }}
           extensions: mbstring, dom, fileinfo
           coverage: none
 
@@ -182,55 +176,3 @@ jobs:
 
       - name: Build assets
         run: yarn run production
-
-  ###########################
-  # Reporting to sonarcloud
-  ###########################
-  reporting:
-    needs: tests
-    runs-on: ubuntu-latest
-    name: Sonarcloud
-    # if: ${{ ! startsWith(github.ref, 'dependabot/') }}
-    if: ${{ false }} # Disable it for now.
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
-
-      - name: Download results
-        uses: actions/download-artifact@v3
-        with:
-          name: results
-          path: results
-
-      - name: Merge junit files
-        run: |
-          yarn global add junit-merge
-          $(yarn global bin)/junit-merge --recursive --dir results/${{ env.coverage-with }}/junit --out results/results.xml
-
-      - name: Set version parameter
-        id: version
-        run: |
-          version=$(git tag --points-at HEAD)
-          test -z "$version" && version="main"
-          echo "::set-output name=value::$version"
-
-      - name: Set coverage list
-        id: coverage
-        run: |
-          SONAR_COVERAGE=$(ls -m --format=comma results/${{ env.coverage-with }}/coverage/coverage*.xml | sed -e ':a;N;$!ba;s/\n//g; s/ //g;')
-          echo "::set-output name=list::$SONAR_COVERAGE"
-
-      - name: SonarCloud Scan
-        if: env.SONAR_TOKEN != ''
-        uses: SonarSource/sonarcloud-github-action@v1.9
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: |
-            -Dsonar.projectVersion=${{ steps.version.outputs.value }}
-            -Dsonar.php.tests.reportPath=./results/results.xml
-            -Dsonar.php.coverage.reportPaths=${{ steps.coverage.outputs.list }}
