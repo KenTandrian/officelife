@@ -132,7 +132,8 @@ jobs:
         working-directory: results/${{ matrix.connection }}
 
       - name: Store results
-        if: matrix.php-version == env.default-php-version
+        if: ${{ false }} # Disable it for now.
+        # if: matrix.php-version == env.default-php-version
         uses: actions/upload-artifact@v3 # Upgraded from v2
         with:
           name: results
