@@ -3708,20 +3708,20 @@
         },
         {
             "name": "nette/utils",
-            "version": "v4.0.0",
+            "version": "v4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "cacdbf5a91a657ede665c541eda28941d4b09c1e"
+                "reference": "9124157137da01b1f5a5a22d6486cb975f26db7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/cacdbf5a91a657ede665c541eda28941d4b09c1e",
-                "reference": "cacdbf5a91a657ede665c541eda28941d4b09c1e",
+                "url": "https://api.github.com/repos/nette/utils/zipball/9124157137da01b1f5a5a22d6486cb975f26db7e",
+                "reference": "9124157137da01b1f5a5a22d6486cb975f26db7e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0 <8.3"
+                "php": ">=8.0 <8.4"
             },
             "conflict": {
                 "nette/finder": "<3",
@@ -3729,7 +3729,7 @@
             },
             "require-dev": {
                 "jetbrains/phpstorm-attributes": "dev-master",
-                "nette/tester": "^2.4",
+                "nette/tester": "^2.5",
                 "phpstan/phpstan": "^1.0",
                 "tracy/tracy": "^2.9"
             },
@@ -3789,9 +3789,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/utils/issues",
-                "source": "https://github.com/nette/utils/tree/v4.0.0"
+                "source": "https://github.com/nette/utils/tree/v4.0.1"
             },
-            "time": "2023-02-02T10:41:53+00:00"
+            "time": "2023-07-30T15:42:21+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -11494,16 +11494,16 @@
         },
         {
             "name": "laravel/dusk",
-            "version": "v7.9.1",
+            "version": "v7.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/dusk.git",
-                "reference": "c7261854fa3be500c2e331600eb1b265052690be"
+                "reference": "9af939b4f62b9086b7ce38aa1e953034809c5962"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/dusk/zipball/c7261854fa3be500c2e331600eb1b265052690be",
-                "reference": "c7261854fa3be500c2e331600eb1b265052690be",
+                "url": "https://api.github.com/repos/laravel/dusk/zipball/9af939b4f62b9086b7ce38aa1e953034809c5962",
+                "reference": "9af939b4f62b9086b7ce38aa1e953034809c5962",
                 "shasum": ""
             },
             "require": {
@@ -11564,9 +11564,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/dusk/issues",
-                "source": "https://github.com/laravel/dusk/tree/v7.9.1"
+                "source": "https://github.com/laravel/dusk/tree/v7.9.2"
             },
-            "time": "2023-07-27T02:09:52+00:00"
+            "time": "2023-07-30T03:20:41+00:00"
         },
         {
             "name": "laravel/legacy-factories",
