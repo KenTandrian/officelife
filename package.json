@@ -47,7 +47,7 @@
         "mrm": "^4.1.17",
         "postcss": "^8.4.27",
         "postcss-import": "^15.1.0",
-        "prettier": "^3.0.0",
+        "prettier": "^3.0.1",
         "resolve-url-loader": "^5.0",
         "sass-loader": "^13.3.2",
         "tiptap": "^1.32.2",
