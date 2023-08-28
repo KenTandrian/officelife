@@ -65,7 +65,7 @@
         "@sentry/tracing": "^7.64.0",
         "@vue/compiler-sfc": "3.3.4",
         "ant-design-vue": "^3.2.20",
-        "axios": "^1.4",
+        "axios": "^1.5",
         "click-outside-vue3": "^4.0.1",
         "donutty": "^2.4.0",
         "lodash": "^4.17.21",
