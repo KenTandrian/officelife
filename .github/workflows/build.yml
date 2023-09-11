@@ -47,7 +47,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v3 # Upgraded from v2
+        uses: actions/checkout@v4 # Upgraded from v2
 
       - name: Setup PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
@@ -141,7 +141,7 @@ jobs:
       php-version: 8.1
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup PHP ${{ env.php-version }}
         uses: shivammathur/setup-php@v2
