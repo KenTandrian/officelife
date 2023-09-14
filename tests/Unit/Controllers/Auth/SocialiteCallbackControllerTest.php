@@ -44,6 +44,7 @@ class SocialiteCallbackControllerTest extends TestCase
                 'id' => 12345,
                 'login' => 'dwigth',
                 'name' => 'Dwight Schrute',
+                'node_id' => 'MDQ6VXNlcjU4MzIzMQ==',
                 'avatar_url' => '',
             ],
             'https://api.github.com/user/emails' => [[
