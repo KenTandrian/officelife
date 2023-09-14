@@ -5,8 +5,6 @@
     border-width: 2px;
   }
 }
-
-@import 'ant-design-vue/lib/date-picker/style/index.css';
 </style>
 
 <template>
