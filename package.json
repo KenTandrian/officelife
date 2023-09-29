@@ -45,7 +45,7 @@
         "laravel-mix-purgecss": "^6.0.0",
         "lint-staged": "^14.0.1",
         "mrm": "^4.1.22",
-        "postcss": "^8.4.30",
+        "postcss": "^8.4.31",
         "postcss-import": "^15.1.0",
         "prettier": "^3.0.3",
         "resolve-url-loader": "^5.0",
