@@ -10,7 +10,7 @@ updates:
     directory: '/'
     schedule:
       interval: weekly
-    open-pull-requests-limit: 20
+    open-pull-requests-limit: 0 # disable
     target-branch: 'dev'
     labels:
       - actions
@@ -21,7 +21,7 @@ updates:
     directory: '/'
     schedule:
       interval: daily
-    open-pull-requests-limit: 20
+    open-pull-requests-limit: 0 # disable
     target-branch: 'dev'
     labels:
       - javascript
@@ -47,7 +47,7 @@ updates:
     directory: '/'
     schedule:
       interval: daily
-    open-pull-requests-limit: 20
+    open-pull-requests-limit: 0 # disable
     target-branch: 'dev'
     labels:
       - php
